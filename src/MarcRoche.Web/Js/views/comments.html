@@ -1,0 +1,43 @@
+﻿<div class="comment">
+    <div class="add">
+        <div class="left">
+            <img width="65" height="65" src="http://www.gravatar.com/avatar/1234" />
+        </div>
+        <div class="left comment-form-container" data-bind="with: commentForm">
+            <div>
+                <textarea id="commentContent" placeholder="leave a comment..." data-bind="value: content, css:{ error: showContentError}, validationOptions: { errorElementClass: 'error' }"></textarea>
+            </div>
+            <div class="align-right">
+                <span class="error-message" data-bind="visible: showErrorMessage">* all fields required</span>
+                <img class="valign-middle" data-bind="visible: showWaiting" src="/images/small-loader.gif" />
+                <div class="inputs">
+                    <input type="text" placeholder="display name" data-bind="value: author, css:{ error: showAuthorError}, validationOptions: { errorElementClass: 'error' }" />
+                </div>
+                <div class="inputs">
+                    <input type="text" placeholder="email (never displayed)" data-bind="value: email, css:{ error: showEmailError}, validationOptions: { errorElementClass: 'error' }" />
+                </div>
+                <div class="inputs">
+                    <button data-bind="click: createComment">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <ul data-bind="foreach: commentsList()">
+        <li>
+            <div class="left">
+                <img width="65" height="65" class="left" data-bind="attr: { src: 'http://www.gravatar.com/avatar/' + emailHash }" />
+            </div>
+            <div class="left comment-form-container">
+                <div>
+                    <span class="author-display" data-bind="text: author"></span>
+                    -
+                    <span class="publishDate-display" data-bind="text: moment(date).format('MMM Do, YYYY')"></span>
+                </div>
+                <p class="content-display" data-bind="text: content"></p>
+            </div>
+            <div class="clear"></div>
+            <div class="spacer"></div>
+        </li>
+    </ul>
+</div>

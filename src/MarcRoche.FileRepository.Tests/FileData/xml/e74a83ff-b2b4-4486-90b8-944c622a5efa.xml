@@ -1,0 +1,49 @@
+<BlogPost title="C# Yield Return Explained" publishdate="4/26/2012 12:00:00 AM" id="e74a83ff-b2b4-4486-90b8-944c622a5efa" author="">
+  <Content>
+    <div>
+      <p>When working with Linq it often becomes beneficial to have types that implement the IEnumerable interface or have methods that return an IEnumerable. This allows us to work with the extension methods in the System.Linq namespace and to support the use of our type or method in the foreach loop.</p>
+      <p>When we iterate through an IEnumerable sequence we would like to only generate the sequence items as we need them. And this is exaclty what yield return does!</p>
+      <p>When we specify yield return the compiler will actually generate a set of classes to maintain the state of the IEnumerable you are working with. The advantage this gives us is when we are in a foreach loop the classes can store the state of the current iteration and refer back to it on the next time through.
+        </p>
+      <p>In this example I will pay a little homage to Jasper Johns with our "NoughtToNine" method :)</p>
+      <p>We have a simple method that yield returns the even numbers from 0 to 9 as an IEnumerable&lt;int&gt;.</p>
+      <pre><![CDATA[
+public static IEnumerable&lt;int&gt; EvenNumbersFromNoughtToNine()
+{
+	for (int i = 0; i &lt; 10; i += 2)
+	{
+		yield return i;
+	}
+}
+            ]]></pre>
+      <p>
+            If we use this method in a foreach loop we get some interesting results:
+        </p>
+      <pre><![CDATA[
+static void Main(string[] args)
+{
+	foreach (int i in EvenNumbersFromNoughtToNine())
+	{
+		Console.WriteLine(i);
+	}
+
+	Console.ReadKey();
+}
+            ]]></pre>
+      <p>If we set a breakpoint inside our EvenNumbersFromNaughtToNine method we can examine what is happening. On each iteration of the foreach loop in Main, we can see that we are actually returning only the next number in the sequence. The compiler generated classes have maintained the state of the IEnumerable and allowed us to generate only the next item in the sequence and return that single value.</p>
+      <p>In fact this implementation may show how yield return functions more clearly. Set a breakpoint on each line and run Main again!</p>
+      <pre><![CDATA[
+public static IEnumerable&lt;int&gt; EvenNumbersFromNoughtToNine()
+{
+	yield return 0;
+	yield return 2;
+	yield return 4;
+	yield return 6;
+	yield return 8;
+}
+            ]]></pre>
+      <p>Pretty neat? We only hit each next line as we iterate through!</p>
+      <p>That wraps up the explanation of C#'s yield return. Now get out there and start implementing IEnumerable :)</p>
+    </div>
+  </Content>
+</BlogPost>

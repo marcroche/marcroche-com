@@ -1,0 +1,621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{971FA4A3-CE2E-402B-A361-0B5AFF6201E2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MarcRoche.Web</RootNamespace>
+    <AssemblyName>MarcRoche.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ColorCode, Version=1.0.1.62759, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ColorCode.1.0.1\lib\ColorCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Kiwi.Markdown, Version=0.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Kiwi.Markdown.0.8.2\lib\net40\Kiwi.Markdown.dll</HintPath>
+    </Reference>
+    <Reference Include="MarkdownSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\Ninject.Web.Common.3.0.0.7\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc">
+      <HintPath>..\packages\Ninject.MVC3.3.0.0.6\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\NinjectDependencyResolver.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\Admin\BlogController.cs" />
+    <Compile Include="Controllers\ArchiveController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\RouteHelper.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ArchiveViewModel.cs" />
+    <Compile Include="Models\CommentsViewModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\comments\placeholder.txt" />
+    <Content Include="App_Data\FileData\markdown\True\about-me.html" />
+    <Content Include="App_Data\FileData\markdown\True\css-sticky-footer.html" />
+    <Content Include="App_Data\FileData\markdown\True\d3-streaming-time-series.html" />
+    <Content Include="App_Data\FileData\markdown\True\git-cheatsheet.html" />
+    <Content Include="App_Data\FileData\markdown\True\html5-native-drag-and-drop.html" />
+    <Content Include="App_Data\FileData\markdown\True\javascript-priority-queue.html" />
+    <Content Include="App_Data\FileData\markdown\True\javascript-promises-part-1.html" />
+    <Content Include="App_Data\FileData\markdown\True\javascript-promises-part-2.html" />
+    <Content Include="App_Data\FileData\markdown\True\javascript-promises.html" />
+    <Content Include="App_Data\FileData\markdown\True\path-finding-with-d3.html" />
+    <Content Include="App_Data\FileData\markdown\True\promises-in-jquery-and-q.html" />
+    <Content Include="App_Data\FileData\markdown\True\unit-testing-mvc-controllers-with-moq.html" />
+    <Content Include="App_Data\FileData\markdown\True\unit-testing-services-with-moq.html" />
+    <Content Include="App_Data\FileData\markdown\unit-testing-services-with-moq.html">
+      <DependentUpon>unit-testing-services-with-moq.md</DependentUpon>
+    </Content>
+    <Content Include="App_Data\FileData\xml\about-me.xml" />
+    <Content Include="App_Data\blog\javascript-promises.json" />
+    <Content Include="App_Data\blog\d3-streaming-time-series.json" />
+    <Content Include="App_Data\FileData\markdown\html5-native-drag-and-drop.md" />
+    <Content Include="App_Data\blog\html5-native-drag-and-drop.json" />
+    <Content Include="App_Data\about\about-me.json" />
+    <Content Include="App_Data\FileData\markdown\javascript-priority-queue.md" />
+    <Content Include="App_Data\blog\javascript-priority-queue.json" />
+    <Content Include="App_Data\FileData\markdown\path-finding-with-d3.md" />
+    <Content Include="App_Data\blog\path-finding-with-d3.json" />
+    <None Include="App_Data\FileData\xml\javascript-promises-part-2.zxml" />
+    <Content Include="App_Data\FileData\xml\path-finding-with-d3.xml" />
+    <Content Include="App_Data\FileData\xml\html5-native-drag-and-drop.xml" />
+    <Content Include="App_Data\FileData\xml\d3-streaming-time-series.xml" />
+    <Content Include="App_Data\FileData\xml\javascript-priotity-queue.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\FileData\xml\javascript-promises.xml" />
+    <Content Include="App_Data\FileData\xml\git-cheatsheet.xml" />
+    <Content Include="App_Data\FileData\xml\css-sticky-footer.xml" />
+    <Content Include="App_Data\FileData\xml\unit-testing-mvc-controllers-with-mvc.xml" />
+    <Content Include="Areas\Admin\Js\app.js" />
+    <Content Include="Areas\Admin\Js\autoGrow.js" />
+    <Content Include="Areas\Admin\Js\BlogCtrl.js" />
+    <Content Include="Areas\Admin\Js\blogService.js" />
+    <Content Include="Areas\Admin\Js\textareaResize.js" />
+    <Content Include="Artifacts\css-sticky-footer\css-sticky-footer.html" />
+    <Content Include="Artifacts\about-me\me.jpg" />
+    <Content Include="Artifacts\d3-streaming-time-series\index.html" />
+    <Content Include="Artifacts\d3-streaming-time-series\model.js" />
+    <Content Include="Artifacts\d3-streaming-time-series\model.min.js">
+      <DependentUpon>model.js</DependentUpon>
+    </Content>
+    <Content Include="Artifacts\d3-streaming-time-series\style.css" />
+    <Content Include="Artifacts\d3-streaming-time-series\TimeSeriesChart.js" />
+    <Content Include="Artifacts\html5-native-drag-and-drop\draggableTiles.js" />
+    <Content Include="Artifacts\javascript-priority-queue\array.png" />
+    <Content Include="Artifacts\javascript-priority-queue\minheap.png" />
+    <Content Include="Artifacts\javascript-priority-queue\tree.png" />
+    <Content Include="Artifacts\javascript-promises\app.js" />
+    <Content Include="Artifacts\javascript-promises\javascript-promises.html" />
+    <Content Include="Artifacts\javascript-promises\JQueryTimer.js" />
+    <Content Include="Artifacts\javascript-promises\QTimer.js" />
+    <Content Include="Artifacts\path-finding-with-d3\boot.js" />
+    <Content Include="Artifacts\path-finding-with-d3\Dijkstra.js" />
+    <Content Include="Artifacts\path-finding-with-d3\Edge.js" />
+    <Content Include="Artifacts\path-finding-with-d3\Grid.js" />
+    <Content Include="Artifacts\path-finding-with-d3\GridGraph.js" />
+    <Content Include="Artifacts\path-finding-with-d3\main.js" />
+    <Content Include="Artifacts\path-finding-with-d3\MinPriorityQueue.js" />
+    <Content Include="Artifacts\path-finding-with-d3\Vertex.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\areas\archive.css" />
+    <Content Include="Content\css\areas\comment.css" />
+    <Content Include="Content\css\areas\d3-article.css" />
+    <Content Include="Content\css\areas\drag-and-drop.css" />
+    <Content Include="Content\css\areas\javascript-priority-queue.css" />
+    <Content Include="Content\css\blog.css" />
+    <Content Include="Content\css\images\calendar.png" />
+    <Content Include="Content\css\images\comment.png" />
+    <Content Include="Content\css\images\link_icons.png" />
+    <Content Include="Content\css\layout.css" />
+    <Content Include="Content\css\normalize.css" />
+    <Content Include="Content\css\normalize.min.css" />
+    <Content Include="Content\css\site.css" />
+    <Content Include="Content\css\tables.css" />
+    <Content Include="Content\themes\base\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.menu.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Content\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Demos\AngularManager\Content\site.css" />
+    <Content Include="Demos\AngularManager\Js\app.js" />
+    <Content Include="Demos\AngularManager\Pages\Home.html" />
+    <Content Include="Demos\AngularManager\Pages\Page2.html" />
+    <Content Include="Demos\AngularManager\Pages\Page1.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="humans.txt" />
+    <Content Include="Images\github.png" />
+    <Content Include="Images\in.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\logo2.png" />
+    <Content Include="Images\logo3.png" />
+    <Content Include="Images\logo4.png" />
+    <Content Include="Images\logo5.png" />
+    <Content Include="Images\mobile-nav-button.png" />
+    <Content Include="Images\small-loader.gif" />
+    <Content Include="Images\twitter.png" />
+    <Content Include="Js\_archive\app.js" />
+    <Content Include="Js\_archive\blogDirectives.js" />
+    <Content Include="Js\controllers\commentsController.js" />
+    <Content Include="Js\main.js" />
+    <Content Include="Js\menu.js" />
+    <Content Include="Js\models\CommentForm.js" />
+    <Content Include="Js\models\CommentViewModel.js" />
+    <Content Include="Js\router.js" />
+    <Content Include="Js\services\commentService.js" />
+    <Content Include="Js\_archive\submitComment.js" />
+    <Content Include="Js\views\comments.html" />
+    <Content Include="LICENSE.txt" />
+    <Content Include="parameters.xml" />
+    <Content Include="Demos\AngularManager\Index.html" />
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular-sanitize.js" />
+    <Content Include="Scripts\angular-sanitize.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Data\FileData\archive\2471ecc5-256e-4ea9-accf-d74a652015d4.json" />
+    <Content Include="App_Data\FileData\archive\27f7ecb8-47fb-4be5-bd12-118e34e7f518.json" />
+    <Content Include="App_Data\FileData\archive\5a5fcdfb-4d2d-4aed-a442-cd72054cef5c.json" />
+    <Content Include="App_Data\FileData\archive\6efdcf97-2151-41a9-b65e-f7e3ceb24db2.json" />
+    <Content Include="App_Data\FileData\archive\80a8755c-8e99-4997-be3f-22f22f2510e6.json" />
+    <Content Include="App_Data\FileData\archive\a821a196-bb8f-4557-b2d6-86009a7a32c9.json" />
+    <Content Include="App_Data\FileData\archive\aaf3e2dd-2809-499e-8e19-f250455728b7.json" />
+    <Content Include="App_Data\FileData\bak\2471ecc5-256e-4ea9-accf-d74a652015d4.json" />
+    <Content Include="App_Data\FileData\bak\27f7ecb8-47fb-4be5-bd12-118e34e7f518.json" />
+    <Content Include="App_Data\FileData\bak\5a5fcdfb-4d2d-4aed-a442-cd72054cef5c.json" />
+    <Content Include="App_Data\FileData\bak\6efdcf97-2151-41a9-b65e-f7e3ceb24db2.json" />
+    <Content Include="App_Data\FileData\bak\80a8755c-8e99-4997-be3f-22f22f2510e6.json" />
+    <Content Include="App_Data\FileData\bak\a821a196-bb8f-4557-b2d6-86009a7a32c9.json" />
+    <Content Include="App_Data\FileData\bak\aaf3e2dd-2809-499e-8e19-f250455728b7.json" />
+    <Content Include="App_Data\FileData\bak\c2e27f54-001a-48f0-a876-a605309558b6.json" />
+    <Content Include="App_Data\FileData\bak\c40cd2c9-222c-4abc-9907-1be0d4937542.json" />
+    <Content Include="App_Data\FileData\bak\c828ea6d-9078-4c76-a699-9de2f4bab8cf.json" />
+    <Content Include="App_Data\FileData\bak\cd284e5d-cc2b-475a-b93b-e490d373e5cd.json" />
+    <Content Include="App_Data\FileData\bak\e74a83ff-b2b4-4486-90b8-944c622a5efa.json" />
+    <Content Include="App_Data\FileData\bak\e8eb83a3-fd9c-4933-98c1-b65bfafb41f3.json" />
+    <Content Include="App_Data\FileData\bak\ebf48e18-de0d-4664-9237-aedc2a92351a.json" />
+    <Content Include="App_Data\FileData\bak\f27f4c44-70d6-4671-8085-049849bda82a.json" />
+    <Content Include="App_Data\FileData\bak\fcf36fec-b36f-4dc5-8e60-a07de6ded1ee.json" />
+    <Content Include="App_Data\FileData\archive\c2e27f54-001a-48f0-a876-a605309558b6.json" />
+    <Content Include="App_Data\FileData\archive\c40cd2c9-222c-4abc-9907-1be0d4937542.json" />
+    <Content Include="App_Data\FileData\archive\c828ea6d-9078-4c76-a699-9de2f4bab8cf.json" />
+    <Content Include="App_Data\FileData\archive\cd284e5d-cc2b-475a-b93b-e490d373e5cd.json" />
+    <Content Include="App_Data\FileData\archive\e74a83ff-b2b4-4486-90b8-944c622a5efa.json" />
+    <Content Include="App_Data\FileData\archive\e8eb83a3-fd9c-4933-98c1-b65bfafb41f3.json" />
+    <Content Include="App_Data\FileData\archive\ebf48e18-de0d-4664-9237-aedc2a92351a.json" />
+    <Content Include="App_Data\FileData\archive\f27f4c44-70d6-4671-8085-049849bda82a.json" />
+    <Content Include="App_Data\FileData\archive\fcf36fec-b36f-4dc5-8e60-a07de6ded1ee.json" />
+    <Content Include="App_Data\FileData\xml\27f7ecb8-47fb-4be5-bd12-118e34e7f518.zxml" />
+    <Content Include="App_Data\FileData\xml\6efdcf97-2151-41a9-b65e-f7e3ceb24db2.zxml" />
+    <Content Include="App_Data\FileData\xml\80a8755c-8e99-4997-be3f-22f22f2510e6.zxml" />
+    <Content Include="App_Data\FileData\xml\a821a196-bb8f-4557-b2d6-86009a7a32c9.zxml" />
+    <Content Include="App_Data\FileData\xml\aaf3e2dd-2809-499e-8e19-f250455728b7.zxml" />
+    <Content Include="App_Data\FileData\xml\c40cd2c9-222c-4abc-9907-1be0d4937542.zxml" />
+    <Content Include="App_Data\FileData\xml\c828ea6d-9078-4c76-a699-9de2f4bab8cf.zxml" />
+    <Content Include="App_Data\FileData\xml\cd284e5d-cc2b-475a-b93b-e490d373e5cd.zxml" />
+    <Content Include="App_Data\FileData\xml\e74a83ff-b2b4-4486-90b8-944c622a5efa.zxml" />
+    <Content Include="App_Data\FileData\xml\e8eb83a3-fd9c-4933-98c1-b65bfafb41f3.zxml" />
+    <Content Include="App_Data\FileData\xml\ebf48e18-de0d-4664-9237-aedc2a92351a.zxml" />
+    <Content Include="App_Data\FileData\xml\f27f4c44-70d6-4671-8085-049849bda82a.zxml" />
+    <Content Include="App_Data\FileData\xml\fcf36fec-b36f-4dc5-8e60-a07de6ded1ee.zxml" />
+    <Content Include="App_Data\FileData\markdown\about-me.md" />
+    <Content Include="App_Data\FileData\markdown\git-cheatsheet.md" />
+    <Content Include="App_Data\FileData\markdown\unit-testing-mvc-controllers-with-moq.md" />
+    <Content Include="App_Data\FileData\markdown\unit-testing-services-with-moq.md" />
+    <Content Include="App_Data\FileData\markdown\css-sticky-footer.md" />
+    <Content Include="App_Data\about\about-me.json" />
+    <None Include="App_Data\FileData\archive\101675a4-d75b-42c2-ad96-e9e2c522ee84.json" />
+    <Content Include="App_Data\blog\css-sticky-footer.json" />
+    <Content Include="App_Data\blog\git-cheatsheet.json" />
+    <Content Include="App_Data\blog\unit-testing-mvc-controllers-with-moq.json" />
+    <Content Include="App_Data\FileData\markdown\javascript-promises.md" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="App_Data\FileData\markdown\d3-streaming-time-series.md" />
+    <Content Include="Artifacts\d3-streaming-time-series\model.min.js.map">
+      <DependentUpon>model.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\d3.v3.js" />
+    <Content Include="Scripts\d3.v3.min.js" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-sanitize.min.js.map" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-3.0.0.debug.js" />
+    <Content Include="Scripts\knockout-3.0.0.js" />
+    <Content Include="Scripts\knockout.mapping-latest.debug.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
+    <Content Include="Scripts\knockout.validation.debug.js" />
+    <Content Include="Scripts\knockout.validation.js" />
+    <Content Include="Scripts\ko.js" />
+    <Content Include="Scripts\md5.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment-with-langs.js" />
+    <Content Include="Scripts\moment-with-langs.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\q.js" />
+    <Content Include="Scripts\q.min.js" />
+    <Content Include="Scripts\r.js" />
+    <Content Include="Scripts\require.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\text.js" />
+    <Content Include="Scripts\underscore.js" />
+    <Content Include="Scripts\underscore.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.old.cshtml" />
+    <Content Include="Views\Shared\_Layout.old.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Scripts\underscore.min.map" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Archive\Index.cshtml" />
+    <Content Include="Views\Archive\Title.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Projects\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Archive\Archive.cshtml" />
+    <Content Include="Views\Blog\BlogByTitle.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\FileData\json\" />
+    <Folder Include="App_Data\tags\" />
+    <Folder Include="Areas\Admin\Js\model\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Content\css\areas\blog\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MarcRoche.Model\MarcRoche.Model.csproj">
+      <Project>{06aa32f1-3013-4aa2-a291-320a2e37e0cb}</Project>
+      <Name>MarcRoche.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarcRoche.Ninject\MarcRoche.IoC.csproj">
+      <Project>{e3c7b540-f1ca-40ee-af0f-95ee27d5bd2d}</Project>
+      <Name>MarcRoche.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarcRoche.Services.Contracts\MarcRoche.Services.Contracts.csproj">
+      <Project>{8c68361d-6713-4f7f-bbd8-cc48f509828b}</Project>
+      <Name>MarcRoche.Services.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3430</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3430/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

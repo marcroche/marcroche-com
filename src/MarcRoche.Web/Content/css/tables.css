@@ -1,0 +1,29 @@
+﻿.table {
+    display: table;
+    width: 100%;
+}
+
+.table-row {
+    display: table-row;
+    width: 100%;
+}
+
+.table-cell {
+    display: table-cell;
+}
+
+.fullwidth-cell {
+    /* OPTION 1 */
+    display: block; /* or without display definition */
+    /* OPTION 2 */
+    display: table-cell;
+    width: 100%;
+}
+
+.border {
+    border: 1px solid #777777;
+}
+
+.width-50 {
+    width: 50%;
+}

@@ -1,0 +1,40 @@
+<BlogPost title="Unit Testing MVC Controllers with Moq" publishdate="7/13/2013 12:00:00 AM" id="c2e27f54-001a-48f0-a876-a605309558b6" author="marcroche">
+  <Content>
+    <div>
+      <p>One of the key advantages of using the MVC framework is its inhererent testability. In a well designed MVC application, the business logic is cleanly separated from the presentation by the controllers. This establishes a clean separation of concerns and allows the controllers to be tested for the simple act of requesting and retrieving data.</p>
+      <p>
+        <em>I will assume that most readers have already explored Test Driven Development and not dive too deeply in the ideas behind it.</em>.</p>
+      <p>When setting up the tests for the web component of an MVC application, I always start with the controllers. What I am really wanting to do is test that when a controller action is called it attempts to retrieve the data from a domain service. This allows me to keep my tests very narrowly focused on the controller and its actions.</p>
+      <p>Mocking and Stubbing are two of the more popular approaches to establishing domain contexts for the tests, and I use both techniques. But for the unit tests in this example I am using Mocking.</p>
+      <p>
+        <strong>Introducing Moq!</strong>
+      </p>
+      <p>There are many Mocking frameworks that available and I recommend playing with as many as possible. For this example I am using <a href="http://code.google.com/p/moq/" target="_blank">Moq</a>. The source and binaries can be downloaded from the link or simply added to your project using Nuget.</p>
+      <p>In addition to Moq, I am using MSTest as my unit testing framework in this example. Again, there are many testing frameworks and I encourage you to try out as many as you can.</p>
+      <p>So, let's see a test:</p>
+      <pre><code><![CDATA[[TestMethod]
+public void BlogControllerViewPostTest()
+{
+  // Mock my data service
+  Mock&lt;IBlogDataService&gt; messagingService = new Mock&lt;IBlogDataService&gt;();
+
+  // Setup the mock with some test implementation
+  messagingService.Setup(m =&gt; m.ViewPost("Closures in C#")).Returns(() =&gt;
+  {
+    return new BlogPost { Title = "Testing with Moq in MVC", Author = "Test Author", 
+      Body = "Moq Rocks!", PostDate = DateTime.Now };
+  });
+
+  // Create the controller and call an action
+  BlogController controller = new BlogController(messagingService.Object);
+  ActionResult result = controller.ViewPost("Testing with Moq in MVC");
+  ViewResult actual = (ViewResult)result;
+
+  // Assert expectations
+  Assert.AreEqual("Testing with Moq in MVC", actual.Model.Title);
+}]]></code></pre>
+      <p>And that's it! The tests can become more involved, but I generally try to keep my controllers slim and push all of the logic back into the domain model.</p>
+      <p>One interesting note to the example above is that the Mock method is expecting the controller action to pass in "Testing with Moq in MVC". Any other value would not have went into Mock implementation of ViewPost.</p>
+    </div>
+  </Content>
+</BlogPost>

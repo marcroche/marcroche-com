@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    #container {
+        position: relative;
+    }
+
+    #textArea {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        font-family: Helvetica, Arial, sans-serif;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        width: 100%;
+    }
+
+    #textCopy {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        font-family: Helvetica, Arial, sans-serif;
+        padding: 6px; /* Same border+padding as text area. */
+        padding-bottom: 1.15em; /* A bit more than one additional line of text. */
+        visibility: hidden;
+        width: 100%;
+    }
+</style>
+<div ng-app="admin">
+    <div ng-controller="BlogCtrl">
+
+        <div class="container">
+            <select ng-options="t for t in blogPostTitles"
+                    ng-model="selectedBlogPost"
+                    ng-change="loadPost()"></select>
+        </div>
+
+        <div class="container">
+            <input type="text" ng-model="blogPost.author" />
+            <input type="text" ng-model="blogPost.id" />
+            <input type="text" ng-model="blogPost.publishDate" />
+            <input type="text" ng-model="blogPost.title" />
+        </div>
+
+        <div class="container" style="background-color: #FFFFFF">
+            <div ng-bind-html="content"></div>
+            <textarea style="width: 850px" rows="30" id="textArea">{{markdown}}</textarea>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/admin")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/areas/admin/js/app.js")
+    @Scripts.Render("~/areas/admin/js/autoGrow.js")
+    @Scripts.Render("~/areas/admin/js/blogService.js")
+    @Scripts.Render("~/areas/admin/js/BlogCtrl.js")
+}

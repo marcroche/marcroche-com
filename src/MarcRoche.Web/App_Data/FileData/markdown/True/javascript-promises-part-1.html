@@ -1,0 +1,105 @@
+﻿<h1>JavaScript Promises Part 1: Looking at jQuery and Q</h1>
+
+<div>
+    <time class="postinfo left-50 postdate">December 8, 2013</time>
+</div>
+
+<p>Promises provide a method of programming asynchronously in javascript. Prior to promises the most common technique was the use of callbacks. And although callbacks worked fine, they were incredibly tough to follow and difficult to maintain.</p>
+
+<p>JavaScript promises are formally defined by <a href="http://wiki.commonjs.org/wiki/Promises" target="_blank">CommonJS</a>. There are many implementations that have been developed, but two that you will see most often in both client and server side development are jQuery and Q implementations. <em>(jQuery on the client and Q in both client and server)</em></p>
+
+<p>Let's create a very basic scenario. </p>
+
+<p>We are waiting for a countdown to complete before we can continue further processing. The countdown gives us a 'promise' that it will let us know it is done and then blocks, and when the promise is resolved we can continue processing. <a href='/artifacts/javascript-promises-part-1/javascript-promises.html' target="_blank">Click here</a> for a live example.</p>
+
+<p>The main application is pretty simple. We create our 'Timer Models' and we wait for processing to occur:</p>
+
+<p>```JavaScript<br/>
+var jQueryTimer = new TimerModel_jQuery(),<br/>
+    qTimer = new TimerModel_Q(),<br/>
+    timerDiv = $('#timer'),<br/>
+    timer2Div = $('#timer2'),<br/>
+    messageDiv = $('#message');</p>
+
+<p>jQueryTimer.startCountDown(10).progress(function (data) {<br/>
+    timerDiv.text(data.time);<br/>
+}).then(function () {<br/>
+    timerDiv.text('Blast off!');<br/>
+}).then(function() {<br/>
+    qTimer.startCountDown(10).progress(function (data) {<br/>
+        timer2Div.text(data.time);<br/>
+    }).then(function () {<br/>
+        timer2Div.text('Blast off!');<br/>
+    }).then(function() {<br/>
+        messageDiv.text('Both promises have been resolved.')<br/>
+    });<br/>
+});<br/>
+```</p>
+
+<p>The actual configuration of the promise happens in the models. We create the deffered object, return it to the caller, and then resolve it when the promise has been fulfilled. The notify method is only used to send progress updates.</p>
+
+<p>The jQuery Model:</p>
+
+<p>```JavaScript<br/>
+var TimerModel_jQuery = function () {<br/>
+    var self = this;</p>
+
+<pre><code>this.currentTime = 0;
+
+this.startCountDown = function (initialTime) {
+    var deferred = $.Deferred();
+    this.currentTime = initialTime;
+
+    var counter = setInterval(function () {
+        deferred.notify({
+            time: self.currentTime
+        });
+
+        self.currentTime = self.currentTime - 1;
+
+        if (self.currentTime &lt; 0) {
+            clearInterval(counter);
+            deferred.resolve();
+        }
+    }, 1000);
+
+    return deferred.promise();
+};
+</code></pre>
+
+<p>};<br/>
+```</p>
+
+<p>And now the Q model which is identical in all but a couple of minor syntactical nuances:</p>
+
+<p>```JavaScript<br/>
+var TimerModel_Q = function () {<br/>
+    var self = this;</p>
+
+<pre><code>this.currentTime = 0;
+
+this.startCountDown = function (initialTime) {
+    var deferred = Q.defer();
+    this.currentTime = initialTime;
+
+    var counter = setInterval(function () {
+        deferred.notify({
+            time: self.currentTime
+        });
+
+        self.currentTime = self.currentTime - 1;
+
+        if (self.currentTime &lt; 0) {
+            clearInterval(counter);
+            deferred.resolve();
+        }
+    }, 1000);
+
+    return deferred.promise;
+};
+</code></pre>
+
+<p>};<br/>
+```</p>
+
+<p>That's about it for a basic, raw promise. In coming articles we will examine even more scenarios where promises can make our code cleaner and more concise.</p>

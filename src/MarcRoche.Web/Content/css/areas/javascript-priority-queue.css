@@ -1,0 +1,9 @@
+﻿.array {
+    width: 380px;
+}
+
+@media print, screen and (max-width: 425px) {
+    .array {
+        width: 300px;
+    }
+}

@@ -1,0 +1,1 @@
+var mr_com = mr_com || {};

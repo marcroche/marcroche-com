@@ -1,0 +1,21 @@
+﻿.padding-5{
+    padding: 5px;
+}
+
+.padding-10{
+    padding: 10px;
+}
+
+.left-50 {
+    /*float: left;*/
+    width: 50%;
+}
+
+.right-50 {
+    float: right;
+    width: 50%;
+}
+
+.clear {
+    clear: both;
+}

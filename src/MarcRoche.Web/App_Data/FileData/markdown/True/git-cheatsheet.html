@@ -1,0 +1,67 @@
+﻿<h1>Git Cheatsheet</h1>
+
+<div>
+    <time class="postinfo left-50 postdate">August 25, 2013</time>
+</div>
+
+<p>With all of the GUI's available there are still many times when it is simlper and faster to execute Git commands from the command line.</p>
+
+<p>These are a few commands I find myself using often:</p>
+
+<p><strong>$ git clone ssh://user@domain.com/repo.git</strong></p>
+
+<p>Clones, or makes a local copy, of an existing repository</p>
+
+<p><strong>$ git init</strong></p>
+
+<p>Creates a new local repository in the current working directory</p>
+
+<p><strong>$ git status</strong></p>
+
+<p>Lists all changed files in your working directory</p>
+
+<p><strong>$ git add [.] | [-p &lt;file&gt;]</strong></p>
+
+<p>Adds all current changes or adds a file to the next commit</p>
+
+<p><strong>$ git commit [-a]</strong></p>
+
+<p>Commits staged changes or all local changes.</p>
+
+<p><strong>$ git log [-p &lt;file&gt;]</strong></p>
+
+<p>Show the change history for the repository or a specific file</p>
+
+<p><strong>$ git branch [&lt;new branch-name&gt;]</strong></p>
+
+<p>Lists all branches or creates a new branch from the current HEAD</p>
+
+<p><strong>$ git branch -d &lt;branch-name&gt;</strong></p>
+
+<p>Deletes the named branch</p>
+
+<p><strong>$ git checkout &lt;branch-name&gt;</strong></p>
+
+<p>Move HEAD to 'branch-name'</p>
+
+<p><strong>$ git merge &lt;branch&gt;</strong></p>
+
+<p>Merges the branch into the current HEAD</p>
+
+<p><strong>$ git remote -v</strong></p>
+
+<p>Show all current remotes</p>
+
+<p><strong>$ git pull &lt;remote&gt; &lt;branch&gt;</strong></p>
+
+<p>Download changes and merge into HEAD</p>
+
+<p><strong>$ git push &lt;remote&gt; &lt;branch&gt;</strong></p>
+
+<p>Publish local changes to a remote</p>
+
+<p><strong>$ git push &lt;remote&gt; :&lt;branch&gt;</strong></p>
+
+<p>Delete a branch on a remote</p>
+
+<p>There are more Git commands than this. But this should have you covered for most activities that you will be doing with Git.</p>

@@ -1,0 +1,65 @@
+﻿<h1>Unit Testing Services with Moq</h1>
+
+<p><time class="postinfo left-50 postdate">August 25, 2013</time></p>
+
+<p>Service patterns have become a standard method of modelling the backend features of modern applications. For a little background, Eric Evans (link) describes a service as some piece of logic or processing that is outside the normal operations for a domain model or entity. </p>
+
+<p>Even though the intent is to separate concerns and simplify your application, services can become complex and depend on other services themselves. As a result of these dependencies your services can become more and more difficult to test.</p>
+
+<p>The me</p>
+
+<p>This can create a cascading effect especially when you include dependency injection. </p>
+
+<p>One way to test these complex scenarios and still be able to isolate the concerns is with Mocking.</p>
+
+<p>In a well designed MVC application, the business logic is cleanly abstracted from the presentation by the controllers. This establishes a clean separation of concerns and allows the controllers to be tested for the simple act of requesting and receiving data.</p>
+
+<p>I will assume that most readers have already explored Test Driven Development to some extent. If you have not it is a key tenant behind modern software development and you should take a little time to research it.</p>
+
+<p>When setting up the tests for the web component of an MVC application, I am generally concerned with the controllers. What I am really wanting to test is that when a controller action is called it attempts to retrieve the data from a domain service. I am not concerned with the implemenation of the domain service at all during this stage. What I want to know is that when the controller invokes the domain service it responds with some data and the controller handles the data and passes it off to the view.</p>
+
+<p>Mocking and Stubbing are two of the more popular approaches to establishing domain service contexts for the tests, and I use both techniques. But for the unit tests in this example I am using Mocking. This allows me to instantiate a domain service with a fake data context. This can be used to isolate the service to the facts that it can be instantiated and can return data, with no regards to the actual business logic that would usually be involved in the process.</p>
+
+<p><strong>Introducing Moq!</strong></p>
+
+<p>There are many Mocking frameworks that available and I recommend playing with as many as possible. For this example I am using Moq. The source and binaries can be downloaded from the link or simply added to your project using Nuget.</p>
+
+<p>In addition to Moq, I am using MSTest as my unit testing framework. Again, there are many testing frameworks and I encourage you to try out as many as you can.</p>
+
+<p>So, let's see a simple test:</p>
+
+<p>```c#<br/>
+[TestMethod]<br/>
+public void BlogControllerViewPostTest()<br/>
+{<br/>
+    // Mock my data service<br/>
+    Mock<IBlogDataService> messagingService = new Mock<IBlogDataService>();</p>
+
+<pre><code>// Setup the mock with some test implementation
+messagingService.Setup(m =&gt; m.ViewPost("Closures in C#")).Returns(() =&gt;
+{
+    return new BlogPost { 
+        Title = "Testing with Moq in MVC", 
+        Author = "Test Author", 
+        Body = "Moq Rocks!", 
+        PostDate = DateTime.Now 
+    };
+});
+
+// Create the controller and call an action
+BlogController controller = new BlogController(messagingService.Object);
+ActionResult result = controller.ViewPost("Testing with Moq in MVC");
+ViewResult actual = (ViewResult)result;
+
+// Assert expectations
+Assert.AreEqual("Testing with Moq in MVC", actual.Model.Title);
+</code></pre>
+
+<p>}<br/>
+```</p>
+
+<p>And that's it! What we have done is created our service with a Mock implementation. Then we call the controller action and verify that the action is indeed passing the data on to the view.</p>
+
+<p>The tests can become more involved, but I generally try to keep my controllers slim and push all of the logic back into the domain model.</p>
+
+<p>One interesting note specific to Moq from the example above is that the Mock method is expecting the controller action to pass in "Testing with Moq in MVC". Any other value would not have went into Mock's implementation of ViewPost.</p>

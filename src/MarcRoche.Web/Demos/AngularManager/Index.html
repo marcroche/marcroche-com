@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AngularJS Manager - Marc Roche</title>
+    <link href="Content/site.css" rel="stylesheet" />
+</head>
+<body ng-app="angular-manager">
+    <p><a href="#">Home</a></p>
+    <p><a href="#/1">Page 1</a></p>
+    <p><a href="#/2">Page 2</a></p>
+
+    <div class="partial-view-container">
+        <div ng-view class="view-animate"><p>Home</p></div>
+    </div>
+    <script src="../../Scripts/angular.min.js"></script>
+    <script src="../../Scripts/angular-route.min.js"></script>
+    <script src="../../Scripts/angular-animate.min.js"></script>
+    <script src="Js/app.js"></script>
+</body>
+</html>

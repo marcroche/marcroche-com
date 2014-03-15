@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Kiwi.Mvc3</id>
+    <version>0.8.2</version>
+    <title>Kiwi.Mvc3</title>
+    <authors>danielwertheim</authors>
+    <owners>danielwertheim</owners>
+    <licenseUrl>http://github.com/danielwertheim/kiwi/blob/master/Source/License-Kiwi.txt</licenseUrl>
+    <projectUrl>http://github.com/danielwertheim/kiwi</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This Content package sets up the necessary parts for using Kiwi.Markdown in an ASP.Net MVC 3 app.</description>
+    <summary>Kiwi.Markdown helps you embed your GitHub wiki locally by transforming GitHub flavored Markdown to HTML with support for syntax highlighting.</summary>
+    <releaseNotes />
+    <copyright>Daniel Wertheim</copyright>
+    <language />
+    <tags>wiki github markdown syntax-highlighting aspnet mvc3</tags>
+    <dependencies>
+      <dependency id="Kiwi.Markdown" version="0.8.2" />
+      <dependency id="WebActivator" version="1.5" />
+    </dependencies>
+  </metadata>
+</package>

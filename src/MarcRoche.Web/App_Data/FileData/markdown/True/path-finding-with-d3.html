@@ -1,0 +1,372 @@
+﻿<h1>Visualizing Path Finding with D3.js</h1>
+
+<div>
+    <time class="postinfo left-50 postdate">February 15, 2014</time>
+</div>
+
+<p>I am continuing my explorations into <a href="http://d3js.org/" target="_blank">D3</a> with visualizing path finding algorithms.</p>
+
+<p>To use the demo below, draw some obstacles for the path finder to go around and then press start. It will search the grid, at a slowed speed for visualization, and find the shortest path to the end square.</p>
+
+<div id="grid" style="height: 500px"></div>
+
+<p><button onclick='start()'>Start</button><br/>
+<button onclick='reset()'>Reset</button></p>
+
+<h2>The Core D3 Code</h2>
+
+<p>The D3 specific code for this application is contained in the following module.</p>
+
+<p>```JavaScript<br/>
+mr_com.Grid = (function (d3, Vertex, Edge) {<br/>
+    var self;<br/>
+    var id, rows, cols, squareSize, data;<br/>
+    var isMouseDown = false;<br/>
+    var isGridReady = true;<br/>
+    var grid, row, cell;</p>
+
+<pre><code>d3.select(window).on('mousedown', function () { isMouseDown = true; });
+d3.select(window).on('mouseup', function () { isMouseDown = false; });
+
+function init() {
+    grid = d3.select(id).append("svg")
+        .attr("width", cols * squareSize)
+        .attr("height", rows * squareSize)
+        .attr("class", "chart");
+
+    row = grid.selectAll('.row')
+        .data(data, function (d) {
+            return data.indexOf(d);
+        })
+        .enter()
+        .append("svg:g")
+      .attr("class", "row");
+
+    cell = row.selectAll('.cell')
+      .data(function (d) {
+          return d;
+      },
+          function (d) {
+              return d.key;
+          })
+      .enter()
+      .append('rect')
+      .attr('x', function (d, i, r) {
+          return i * squareSize;
+      })
+      .attr('y', function (d, i, r) {
+          return r * squareSize;
+      })
+      .attr('width', squareSize)
+      .attr('height', squareSize)
+          .attr('class', 'cell')
+      .style('fill', function (d) {
+          return d.visited === false ? 'white' : 'blue';
+      })
+      .style("stroke", '#A5A5A5')
+      .on('mouseover', function (d, i, a, p) {
+          if (d.isBlocked === false &amp;&amp; isGridReady) {
+              d3.select(this).style("fill", "#E2E2E2");
+          }
+
+          if (isMouseDown &amp;&amp; isGridReady) {
+              d.isBlocked = true;
+              d3.select(this).style("fill", "#05056B");
+              d3.select(this).style("stroke", "#676767");
+          }
+      })
+    .on('mouseout', function (d, i) {
+        if (d.isBlocked === false &amp;&amp; isGridReady) {
+            d3.select(this).style("fill", "white");
+        }
+    })
+    .on('mousedown', function (d, i) {
+        if (d.isBlocked === false &amp;&amp; isGridReady) {
+            d.isBlocked = true;
+            d3.select(this).style("fill", "#05056B");
+            d3.select(this).style("stroke", "#676767");
+        } else if (isGridReady) {
+            d.isBlocked = false;
+            d3.select(this).style("fill", "#E2E2E2");
+            d3.select(this).style("stroke", '#A5A5A5');
+        }
+    });
+}
+
+function update() {
+    var r = grid.selectAll('.row')
+      .data(data, function (d) {
+          return data.indexOf(d);
+      });
+
+    var c = r.selectAll('rect')
+          .data(function (d) {
+              return d;
+          }, function (d) {
+              return d.key;
+          })
+        .transition()
+        .style('fill', function (d) {
+            var fill = 'white';
+            if (d.visited) {
+                fill = '#67CCFE';
+            }
+            if (d.isBlocked) {
+                fill = "#05056B";
+            }
+            if (d.isStart) {
+                fill = '#87FF6F';
+            }
+            if (d.isEnd) {
+                fill = '#FF0F0F';
+            }
+            if (d.isOnPath) {
+                fill = '#FFF886';
+            }
+            return fill;
+        });
+}
+
+function complete() {
+    isGridReady = false;
+}
+
+function reset(_data) {
+    data = _data;
+    isGridReady = true;
+    update();
+}
+
+var api = function (_id, _rows, _cols, _squareSize, _data) {
+    self = this;
+    data = _data;
+    id = _id;
+    cols = _cols;
+    rows = _rows;
+    squareSize = _squareSize;
+
+    init();
+
+    this.update = update;
+    this.reset = reset;
+    this.complete = complete;
+};
+
+return api;
+</code></pre>
+
+<p>})(d3, mr_com.Vertex, mr_com.Edge);<br/>
+```</p>
+
+<p>The important areas to note are the init() and update() functions. These guys handle the D3 selections and this is where most of the magic happens.</p>
+
+<p><strong>init()</strong><br /><br/>
+In this function we handle the D3 enter selection and we add the svg and grid elements. We also handle basic formatting and setup our event handlers.</p>
+
+<p>One interesting aspect to point out is how the nested selections work. Select svg, select row, select cells.</p>
+
+<p>We handle the events in the .on() functions that D3 provides.</p>
+
+<p><strong>update()</strong><br /><br/>
+This function uses the transition selection to handle updates to our data. It then applies these changes to the existing elements.</p>
+
+<p>Since we don't remove elements after the initial creation we never use the exit selection.</p>
+
+<p>The other code is for managing the state of the data.</p>
+
+<h2>The Search Algorithm</h2>
+
+<p>For the initial implementation I am using Dijkstra's algorithm to search the grid. The implementation follows:</p>
+
+<p>```JavaScript<br/>
+//TODO: Update this with hasPathTo<br/>
+ mr_com.Dijkstra = (function(MinPriorityQueue, Q) {</p>
+
+<pre><code>var priorityQueue;
+var distTo = [];
+var shortestEdges = [];
+var startVertex, endVertex;
+
+function relax(edge) {
+  var source = edge.source;
+  var target = edge.target;
+
+  if(target.isBlocked) {
+   return; 
+  }
+
+  if(target.cost &gt; source.cost + edge.weight) {
+    target.cost = source.cost + edge.weight;
+
+    var se = _.findWhere(shortestEdges, { key: target.key });
+    if(se !== undefined) {
+      se.edge = edge;
+    } else {
+      shortestEdges.push({ key: target.key, edge: edge});
+    }
+
+    if(priorityQueue.contains(target.key)) {
+       priorityQueue.decreaseKey(target.heapIndex, target.cost);
+    } else {
+      priorityQueue.push(target);
+    }
+  }
+};
+
+function shortestPath(destinationKey) {
+  var path = [];
+  var e = _.findWhere(shortestEdges, { key: destinationKey });
+
+  if (!hasPathTo(e)) {
+      return path;
+  }
+
+  while(e !== undefined) {
+    e = _.findWhere(shortestEdges, { key: e.edge.source.key });
+    path.unshift(e);
+  }
+  return path;
+};
+
+function search() {
+    var deferred = Q.defer();
+    var runner = setInterval(function () {
+      var v = priorityQueue.pop();
+      v.heapIndex = -1;
+      for(var i = 0; i &lt; v.edges.length; i++) {
+        relax(v.edges[i]);
+      }
+      v.visited = true;
+      deferred.notify({
+        status: 'visited'
+      });
+
+      if(priorityQueue.isEmpty()) {
+       clearInterval(runner);
+        var sp = shortestPath(endVertex.key);
+        for(var s = 0; s &lt; sp.length; s++) {
+          if(sp[s] !== undefined) {
+           sp[s].edge.target.isOnPath = true; 
+          }
+        }
+        deferred.notify({
+          status: 'complete'
+        });
+        deferred.resolve();
+      }
+    }, 25);
+
+    return deferred.promise;
+};
+
+var api = function(_startVertex, _endVertex) {
+    startVertex = _startVertex;
+    endVertex = _endVertex;
+    priorityQueue = new MinPriorityQueue('key', 'cost', []);
+    priorityQueue.push(startVertex);
+
+    this.search = search;
+};
+
+return api;
+</code></pre>
+
+<p>})(mr_com.MinPriorityQueue, Q);<br/>
+```</p>
+
+<h2>The Core Data Structures</h2>
+
+<p>```JavaScript<br/>
+mr_com.GridGraph = (function(Vertex, Edge) {<br/>
+    var vertices = [];</p>
+
+<pre><code>var self;
+var cols;
+var rows;
+
+function findNeighbors() {
+  for(var r = 0; r &lt; rows; r++) {
+    for(var c = 0; c &lt; cols; c++) {
+      if(c - 1 &gt;= 0) {
+        vertices[r][c].edges.push(new Edge(vertices[r][c], vertices[r][c - 1], 1.0));
+      }
+
+      if(c + 1 &lt; cols) {
+        vertices[r][c].edges.push(new Edge(vertices[r][c], vertices[r][c + 1], 1.0));
+      }
+
+      if(r - 1 &gt;= 0) {
+        vertices[r][c].edges.push(new Edge(vertices[r][c], vertices[r - 1][c], 1.0));
+      }
+
+      if(r + 1 &lt; rows) {
+        vertices[r][c].edges.push(new Edge(vertices[r][c], vertices[r + 1][c], 1.0));
+      }
+    }
+  }
+}
+
+function createGraph(_rows, _cols) {
+    vertices = [];
+    for(var i = 0; i &lt; rows; i++) {
+      var r = [];
+      for (var j = 0; j &lt; cols; j++) {
+        r.push(new Vertex(i, j));
+      }
+      vertices.push(r);
+    }
+}
+
+var api = function(_rows, _cols) {
+    self = this;
+    rows = _rows;
+    cols = _cols;
+
+    createGraph(rows, cols);
+    findNeighbors();
+
+    this.vertices = vertices;
+};
+
+return api;
+</code></pre>
+
+<p>})(mr_com.Vertex, mr_com.Edge);<br/>
+```</p>
+
+<p>```JavaScript<br/>
+mr_com.Vertex = function(row, column) {</p>
+
+<p>this.key = '[' + row + ',' + column + ']';<br/>
+  this.row = row;<br/>
+  this.column = column;</p>
+
+<p>this.heapIndex = -1;<br/>
+  this.visited = false;<br/>
+  this.isOnPath = false;<br/>
+  this.cost = Number.POSITIVE_INFINITY;<br/>
+  this.edges = [];</p>
+
+<p>this.isBlocked = false;<br/>
+  this.isStart = false;<br/>
+  this.isEnd = false;</p>
+
+<p>this.reset = function() {<br/>
+    this.heapIndex = -1;<br/>
+    this.visited = false;<br/>
+    this.isOnPath = false;<br/>
+    this.cost = Number.POSITIVE_INFINITY;<br/>
+    this.isBlocked = false;<br/>
+    this.isStart = false;<br/>
+    this.isEnd = false;<br/>
+  }<br/>
+};<br/>
+```</p>
+
+<p><code>JavaScript<br/>
+mr_com.Edge = function(source, target, weight) {<br/>
+  this.weight = weight;<br/>
+  this.target = target;<br/>
+  this.source = source;<br/>
+};<br/>
+</code></p>

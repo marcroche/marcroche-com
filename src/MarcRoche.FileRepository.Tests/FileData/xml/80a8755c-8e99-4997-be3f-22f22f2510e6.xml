@@ -1,0 +1,9 @@
+<BlogPost title="ASP.Net MVC Custom Action Filters" publishdate="12/3/2011 12:00:00 AM" id="80a8755c-8e99-4997-be3f-22f22f2510e6" author="">
+  <Content>
+    <div>
+      <p>ASP.Net MVC provides a nice framework to allow processing to happen at different stages of the controller action method lifecycle. This framework is called Action Filters and the great thing for us is that it is extensible!</p>
+      <p>There are four basic types of Action Fiters that you can create:<ul><li>Authorization Filters</li><li>Action Filters</li><li>Result Filters</li><li>Exception Filters</li></ul>If there are multiple filters applied to an action, they are executed in the order listed here.</p>
+      <p>I am going to create a simple Action Filter that logs a session id with an action method call.</p>
+    </div>
+  </Content>
+</BlogPost>

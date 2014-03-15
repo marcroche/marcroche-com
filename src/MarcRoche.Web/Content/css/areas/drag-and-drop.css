@@ -1,0 +1,56 @@
+﻿.dnd-container .dtable {
+    display: table;
+    border: 1px solid #000000;
+}
+
+.dnd-container .row {
+    display: table-row;
+    padding: 10px;
+}
+
+.dnd-container .cell {
+    display: table-cell;
+    border: 1px solid #000000;
+}
+
+.dnd-container .tile {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000000;
+    background-color: #ACACAC;
+    margin: 10px;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+    font-size: 5em;
+    font-family: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.dnd-container .cell.over {
+    border: 1px dashed #000;
+}
+
+.dnd-container .draggable {
+    float: left;
+}
+
+.dnd-container {
+    text-align: center;
+    width: 100%;
+}
+
+@media print, screen and (max-width: 480px) {
+    .dnd-container .tile {
+        width: 75px;
+        height: 75px;
+        line-height: 75px;
+        font-size: 3em;
+    }
+}

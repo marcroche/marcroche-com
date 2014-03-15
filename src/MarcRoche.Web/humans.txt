@@ -1,0 +1,16 @@
+﻿# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Marc Roche -- Developer -- @FF0000
+
+# THANKS
+
+    Everyone
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    jQuery, Modernizr,
+	MVC .Net / C#

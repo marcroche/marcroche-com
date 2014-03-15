@@ -1,0 +1,6 @@
+﻿@model IEnumerable<MarcRoche.Model.Blog.BlogPost>
+
+@foreach (MarcRoche.Model.Blog.BlogPost post in @Model)
+{
+    @Html.Raw(post.HtmlContent)
+}

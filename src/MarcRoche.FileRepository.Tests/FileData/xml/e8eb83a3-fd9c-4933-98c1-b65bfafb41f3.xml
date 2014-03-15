@@ -1,0 +1,64 @@
+<BlogPost title="Build a Dynamic Where Clause with Expression Trees" publishdate="7/21/2012 12:00:00 AM" id="e8eb83a3-fd9c-4933-98c1-b65bfafb41f3" author="">
+  <Content>
+    <div>
+      <p>After looking at the basics of Expression Trees it is time for a practical example. A scenario that will likely come up when you start building Linq queries is the ability to generate dynamic expressions at runtime. In the case of the Where clause we can keep chaining our expressions to build up "AND" conditions:</p>
+      <pre><![CDATA[
+static void Main()
+{
+	List&lt;Car&gt; Cars = new List&lt;Car&gt;
+	{
+		new Car { Make="Ford", Model="Pinto", Color="Grey", Year="1975" },
+		new Car { Make="GMC", Model="Gremlin", Color="White", Year="1972" },
+		new Car { Make="Infiniti", Model="G35", Color="Silver", Year="1995" },
+		new Car { Make="BMW", Model="335i", Color="White", Year="2011" },
+		new Car { Make="Toyota", Model="Highlander", Color="White", Year="2008" }
+	};
+
+	// We are going to build up the following where clause:
+	// Cars.Where(x =&gt; x.Color == "White" &amp;&amp; x.Make == "Toyota");
+	IEnumerable&lt;Car&gt; cars = Cars.Where(x =&gt; x.Color == "White");
+	cars = Cars.Where(x =&gt; x.Make == "Toyota");
+
+	cars.ToList().ForEach(x =&gt; Console.WriteLine(x.Make + " " + x.Color));
+	Console.ReadKey();
+}
+			]]></pre>
+      <p>Not so bad huh? However if we need something other than "AND" or we need nested conditions it gets a bit trickier. In the example below we will create an "OR" condition to filter the Cars to the ones that are either "Toyota OR Silver":</p>
+      <pre><![CDATA[
+static void Main()
+{
+	List&lt;Car&gt; Cars = new List&lt;Car&gt;
+	{
+		new Car { Make="Ford", Model="Pinto", Color="Grey", Year="1975" },
+		new Car { Make="GMC", Model="Gremlin", Color="White", Year="1972" },
+		new Car { Make="Infiniti", Model="G35", Color="Silver", Year="1995" },
+		new Car { Make="BMW", Model="335i", Color="White", Year="2011" },
+		new Car { Make="Toyota", Model="Highlander", Color="White", Year="2008" }
+	};
+
+	ParameterExpression carParamater = Expression.Parameter(typeof(Car));
+
+	Expression&lt;Func&lt;Car, bool&gt;&gt; predicate = Expression.Lambda&lt;Func&lt;Car, bool&gt;&gt;(
+		Expression.Equal(
+			Expression.PropertyOrField(carParamater, "Make"),
+			Expression.Constant("Toyota")),
+			carParamater);
+
+	Expression&lt;Func&lt;Car, bool&gt;&gt; predicate2 = Expression.Lambda&lt;Func&lt;Car, bool&gt;&gt;(
+		Expression.Equal(
+			Expression.PropertyOrField(carParamater, "Color"),
+			Expression.Constant("Silver")),
+			carParamater);
+
+	Expression&lt;Func&lt;Car, bool&gt;&gt; body = Expression.Lambda&lt;Func&lt;Car, bool&gt;&gt;(
+		Expression.OrElse(predicate.Body, predicate2.Body),
+		carParamater);
+
+	Cars.Where(body.Compile()).ToList().ForEach(x =&gt; Console.WriteLine(x.Make + " " + x.Color));
+	Console.ReadKey();
+}
+			]]></pre>
+      <p>Pretty neat. From this simple example a pattern could be extracted for reusable code. However for the purpose of this article we wanted to examine the construction of the Expression Tree one line at a time. Good luck incorporating Expression Trees into your own code and check back often for new updates!</p>
+    </div>
+  </Content>
+</BlogPost>

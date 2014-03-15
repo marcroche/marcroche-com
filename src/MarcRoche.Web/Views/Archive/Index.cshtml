@@ -1,0 +1,17 @@
+﻿@model MarcRoche.Web.Models.ArchiveViewModel
+
+<div class="archive">
+    <h2>Archive</h2>
+
+    @foreach (var item in @Model.Items)
+    {
+        <h3>@item.Key</h3>
+
+        foreach (var post in item.Value)
+        {
+            <div>
+                <p><a href="@post.Link">@post.Title</a></p>
+            </div>
+        }
+    }
+</div>

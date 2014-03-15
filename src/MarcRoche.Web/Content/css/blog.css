@@ -1,0 +1,32 @@
+﻿.postinfo {
+    font-size: 11px;
+    line-height: 16px;
+    padding-left: 3px;
+}
+
+.postdate {
+    background-image: url(images/calendar.png);
+    background-repeat: no-repeat;
+    padding: 2px;
+    padding-left: 22px;
+}
+
+pre {
+    background-color: #F7F7F7;
+    border: 2px solid darkgray;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.4;
+    /*overflow-x: scroll;
+    overflow-y: hidden;
+    -ms-word-wrap: normal;
+    word-wrap: ;*/
+}
+
+/*section { display: table; width: 100%;}
+div { display: table-cell; height: 100px; border: 1px solid #000;}
+#a { width:60px; }
+#b { width:30%; }
+#c { width:40px; }
+#d { }
+#e { width:100px; }*/

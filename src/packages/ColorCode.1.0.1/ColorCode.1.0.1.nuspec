@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>ColorCode</id>
+    <version>1.0.1</version>
+    <title>ColorCode</title>
+    <authors>Microsoft, Drew Miller</authors>
+    <owners>Microsoft, Drew Miller</owners>
+    <licenseUrl>http://colorcode.codeplex.com/license</licenseUrl>
+    <projectUrl>http://colorcode.codeplex.com</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>ColorCode is a library for colorizing source code (also known as syntax highlighting).</description>
+    <summary>ColorCode is a library for colorizing source code (also known as syntax highlighting).</summary>
+    <copyright>(c) Drew Miller</copyright>
+  </metadata>
+</package>
