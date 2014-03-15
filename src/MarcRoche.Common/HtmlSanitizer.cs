@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿// Reference: http://codepaste.net/sbbnks
+
+using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using HtmlAgilityPack;
@@ -7,7 +9,6 @@ namespace MarcRoche.Common
 {
     public class HtmlSanitizer
     {
-
         public HashSet<string> BlackList = new HashSet<string>() 
         {
                 { "script" },

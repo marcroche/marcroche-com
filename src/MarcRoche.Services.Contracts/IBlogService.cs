@@ -15,9 +15,5 @@ namespace MarcRoche.Services.Contracts
 
         void CreateComment(string title, BlogComment blogComment);
         IList<BlogComment> GetComments(string title);
-
-        //void DeleteBlogPost(Guid blogId);
-        //void SaveBlogPost(BlogPost blogPost);
-        //void SaveBlogPost<TElement>(Guid id, TElement element);
     }
 }
