@@ -3,7 +3,7 @@
 
 # TEAM
 
-    Marc Roche -- Developer -- @FF0000
+    Marc Roche -- Developer -- @0xFF0000
 
 # THANKS
 

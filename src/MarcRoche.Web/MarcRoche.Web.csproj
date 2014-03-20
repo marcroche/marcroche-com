@@ -225,7 +225,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\comments\placeholder.txt" />
     <Content Include="App_Data\FileData\markdown\True\about-me.html" />
     <Content Include="App_Data\FileData\markdown\True\css-sticky-footer.html" />
     <Content Include="App_Data\FileData\markdown\True\d3-streaming-time-series.html" />
@@ -252,7 +251,6 @@
     <Content Include="App_Data\blog\javascript-priority-queue.json" />
     <Content Include="App_Data\FileData\markdown\path-finding-with-d3.md" />
     <Content Include="App_Data\blog\path-finding-with-d3.json" />
-    <None Include="App_Data\FileData\xml\javascript-promises-part-2.zxml" />
     <Content Include="App_Data\FileData\xml\path-finding-with-d3.xml" />
     <Content Include="App_Data\FileData\xml\html5-native-drag-and-drop.xml" />
     <Content Include="App_Data\FileData\xml\d3-streaming-time-series.xml" />
@@ -416,58 +414,12 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="App_Data\FileData\archive\2471ecc5-256e-4ea9-accf-d74a652015d4.json" />
-    <Content Include="App_Data\FileData\archive\27f7ecb8-47fb-4be5-bd12-118e34e7f518.json" />
-    <Content Include="App_Data\FileData\archive\5a5fcdfb-4d2d-4aed-a442-cd72054cef5c.json" />
-    <Content Include="App_Data\FileData\archive\6efdcf97-2151-41a9-b65e-f7e3ceb24db2.json" />
-    <Content Include="App_Data\FileData\archive\80a8755c-8e99-4997-be3f-22f22f2510e6.json" />
-    <Content Include="App_Data\FileData\archive\a821a196-bb8f-4557-b2d6-86009a7a32c9.json" />
-    <Content Include="App_Data\FileData\archive\aaf3e2dd-2809-499e-8e19-f250455728b7.json" />
-    <Content Include="App_Data\FileData\bak\2471ecc5-256e-4ea9-accf-d74a652015d4.json" />
-    <Content Include="App_Data\FileData\bak\27f7ecb8-47fb-4be5-bd12-118e34e7f518.json" />
-    <Content Include="App_Data\FileData\bak\5a5fcdfb-4d2d-4aed-a442-cd72054cef5c.json" />
-    <Content Include="App_Data\FileData\bak\6efdcf97-2151-41a9-b65e-f7e3ceb24db2.json" />
-    <Content Include="App_Data\FileData\bak\80a8755c-8e99-4997-be3f-22f22f2510e6.json" />
-    <Content Include="App_Data\FileData\bak\a821a196-bb8f-4557-b2d6-86009a7a32c9.json" />
-    <Content Include="App_Data\FileData\bak\aaf3e2dd-2809-499e-8e19-f250455728b7.json" />
-    <Content Include="App_Data\FileData\bak\c2e27f54-001a-48f0-a876-a605309558b6.json" />
-    <Content Include="App_Data\FileData\bak\c40cd2c9-222c-4abc-9907-1be0d4937542.json" />
-    <Content Include="App_Data\FileData\bak\c828ea6d-9078-4c76-a699-9de2f4bab8cf.json" />
-    <Content Include="App_Data\FileData\bak\cd284e5d-cc2b-475a-b93b-e490d373e5cd.json" />
-    <Content Include="App_Data\FileData\bak\e74a83ff-b2b4-4486-90b8-944c622a5efa.json" />
-    <Content Include="App_Data\FileData\bak\e8eb83a3-fd9c-4933-98c1-b65bfafb41f3.json" />
-    <Content Include="App_Data\FileData\bak\ebf48e18-de0d-4664-9237-aedc2a92351a.json" />
-    <Content Include="App_Data\FileData\bak\f27f4c44-70d6-4671-8085-049849bda82a.json" />
-    <Content Include="App_Data\FileData\bak\fcf36fec-b36f-4dc5-8e60-a07de6ded1ee.json" />
-    <Content Include="App_Data\FileData\archive\c2e27f54-001a-48f0-a876-a605309558b6.json" />
-    <Content Include="App_Data\FileData\archive\c40cd2c9-222c-4abc-9907-1be0d4937542.json" />
-    <Content Include="App_Data\FileData\archive\c828ea6d-9078-4c76-a699-9de2f4bab8cf.json" />
-    <Content Include="App_Data\FileData\archive\cd284e5d-cc2b-475a-b93b-e490d373e5cd.json" />
-    <Content Include="App_Data\FileData\archive\e74a83ff-b2b4-4486-90b8-944c622a5efa.json" />
-    <Content Include="App_Data\FileData\archive\e8eb83a3-fd9c-4933-98c1-b65bfafb41f3.json" />
-    <Content Include="App_Data\FileData\archive\ebf48e18-de0d-4664-9237-aedc2a92351a.json" />
-    <Content Include="App_Data\FileData\archive\f27f4c44-70d6-4671-8085-049849bda82a.json" />
-    <Content Include="App_Data\FileData\archive\fcf36fec-b36f-4dc5-8e60-a07de6ded1ee.json" />
-    <Content Include="App_Data\FileData\xml\27f7ecb8-47fb-4be5-bd12-118e34e7f518.zxml" />
-    <Content Include="App_Data\FileData\xml\6efdcf97-2151-41a9-b65e-f7e3ceb24db2.zxml" />
-    <Content Include="App_Data\FileData\xml\80a8755c-8e99-4997-be3f-22f22f2510e6.zxml" />
-    <Content Include="App_Data\FileData\xml\a821a196-bb8f-4557-b2d6-86009a7a32c9.zxml" />
-    <Content Include="App_Data\FileData\xml\aaf3e2dd-2809-499e-8e19-f250455728b7.zxml" />
-    <Content Include="App_Data\FileData\xml\c40cd2c9-222c-4abc-9907-1be0d4937542.zxml" />
-    <Content Include="App_Data\FileData\xml\c828ea6d-9078-4c76-a699-9de2f4bab8cf.zxml" />
-    <Content Include="App_Data\FileData\xml\cd284e5d-cc2b-475a-b93b-e490d373e5cd.zxml" />
-    <Content Include="App_Data\FileData\xml\e74a83ff-b2b4-4486-90b8-944c622a5efa.zxml" />
-    <Content Include="App_Data\FileData\xml\e8eb83a3-fd9c-4933-98c1-b65bfafb41f3.zxml" />
-    <Content Include="App_Data\FileData\xml\ebf48e18-de0d-4664-9237-aedc2a92351a.zxml" />
-    <Content Include="App_Data\FileData\xml\f27f4c44-70d6-4671-8085-049849bda82a.zxml" />
-    <Content Include="App_Data\FileData\xml\fcf36fec-b36f-4dc5-8e60-a07de6ded1ee.zxml" />
     <Content Include="App_Data\FileData\markdown\about-me.md" />
     <Content Include="App_Data\FileData\markdown\git-cheatsheet.md" />
     <Content Include="App_Data\FileData\markdown\unit-testing-mvc-controllers-with-moq.md" />
     <Content Include="App_Data\FileData\markdown\unit-testing-services-with-moq.md" />
     <Content Include="App_Data\FileData\markdown\css-sticky-footer.md" />
     <Content Include="App_Data\about\about-me.json" />
-    <None Include="App_Data\FileData\archive\101675a4-d75b-42c2-ad96-e9e2c522ee84.json" />
     <Content Include="App_Data\blog\css-sticky-footer.json" />
     <Content Include="App_Data\blog\git-cheatsheet.json" />
     <Content Include="App_Data\blog\unit-testing-mvc-controllers-with-moq.json" />
@@ -486,6 +438,7 @@
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
+    <None Include="Properties\PublishProfiles\C_Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -556,6 +509,7 @@
     <Content Include="Views\Blog\BlogByTitle.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\comments\" />
     <Folder Include="App_Data\FileData\json\" />
     <Folder Include="App_Data\tags\" />
     <Folder Include="Areas\Admin\Js\model\" />

@@ -14,7 +14,7 @@ public static class RouteHelper
         }
         else
         {
-            return "";
+            return "class=unselectedTab";
         }
     }
 }
