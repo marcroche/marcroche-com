@@ -77,7 +77,7 @@
     <Compile Include="FormatConversions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FileRepository\MarcRoche.Repository.FileSystem.csproj">
+    <ProjectReference Include="..\MarcRoche.FileRepository\MarcRoche.Repository.FileSystem.csproj">
       <Project>{71dc42a0-e09b-47e6-ac20-98c5a98e5c0f}</Project>
       <Name>MarcRoche.Repository.FileSystem</Name>
     </ProjectReference>
