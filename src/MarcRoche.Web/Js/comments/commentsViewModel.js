@@ -2,10 +2,10 @@
 
     var CommentViewModel = function (title) {
         var self = this;
-        self.title = title;
-        self.commentsList = ko.observableArray([]);
-        self.commentForm = new CommentForm(title);
-        self.commentForm.commentAdded.subscribe(function () {
+        this.title = title;
+        this.commentsList = ko.observableArray([]);
+        this.commentForm = new CommentForm(title);
+        this.commentForm.commentAdded.subscribe(function () {
             return self.getCurrentComments();
         });
 

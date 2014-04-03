@@ -1,10 +1,10 @@
 ﻿app.controller("CommentsCtrl", function ($scope) {
     var comment = new marcroche_blog.Comment();
-    $scope.message = "This is some angular shit";
 
     $scope.newComment = comment;
+    $scope.comments = [];
 
-    $scope.newCommentIsInvalid = true;
+    $scope.newCommentIsInvalid = false;
 
     $scope.createComment = function (form) {
 

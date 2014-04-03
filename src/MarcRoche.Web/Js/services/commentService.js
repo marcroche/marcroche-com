@@ -1,5 +1,5 @@
-﻿define(['jQuery', 'models/CommentViewModel'], function ($, CommentViewModel) {
-
+﻿//define(['jQuery'], function ($) {
+var marcroche_blog.CommentService = function ($) {
     var createComment = function (comment) {
         var options = {
             url: '/api/comments',
@@ -43,4 +43,5 @@
         getComments: getComments,
         createComment: createComment
     }
-});
+}
+//);

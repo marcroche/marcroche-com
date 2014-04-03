@@ -6,26 +6,26 @@
         <div class="left comment-form-container">
             <form name="newComment" data-ng-submit="createComment(newComment)" novalidate>
                 <div>
-                    <textarea id="commentContent" placeholder="leave a comment...">{{newComment.content}}</textarea><!--data-bind="value: content, css:{ error: showContentError}, validationOptions: { errorElementClass: 'error' }"-->
+                    <textarea id="commentContent" placeholder="leave a comment..." data-ng-model="newComment.content" required></textarea>
                 </div>
                 <div class="align-right">
-                    <span class="error-message" data-ng-show="newCommentIsValid()">* all fields required</span>
+                    <span class="error-message" data-ng-show="newCommentIsInvalid">* all fields required</span>
                     <!--<img class="valign-middle" data-bind="visible: showWaiting" src="/images/small-loader.gif" />-->
                     <div class="inputs">
-                        <input type="text" placeholder="display name" data-ng-model="newComment.author" required /> <!--data-bind="value: author, css:{ error: showAuthorError}, validationOptions: { errorElementClass: 'error' }"-->
+                        <input type="text" placeholder="display name" data-ng-model="newComment.author" required />
                     </div>
                     <div class="inputs">
-                        <input type="text" placeholder="email (never displayed)" data-ng-model="newComment.email" required /> <!--data-bind="value: email, css:{ error: showEmailError}, validationOptions: { errorElementClass: 'error' }"-->
+                        <input type="text" placeholder="email (never displayed)" data-ng-model="newComment.email" required />
                     </div>
                     <div class="inputs">
-                        <button>Submit</button>
+                        <button type="submit">Submit</button>
                     </div>
                 </div>
             </form>
         </div>
         <div class="clear"></div>
     </div>
-    <ul data-bind="foreach: commentsList()">
+    <ul data-ng-repeat="comments">
         <li>
             <div class="left">
                 <img width="65" height="65" class="left" data-bind="attr: { src: 'http://www.gravatar.com/avatar/' + emailHash }" />
