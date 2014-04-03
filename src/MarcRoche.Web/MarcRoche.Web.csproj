@@ -389,6 +389,11 @@
     <Content Include="Images\mobile-nav-button.png" />
     <Content Include="Images\small-loader.gif" />
     <Content Include="Images\twitter.png" />
+    <Content Include="Js\app.js" />
+    <Content Include="Js\comments\Comment.js" />
+    <Content Include="Js\comments\commentsController.js" />
+    <Content Include="Js\comments\commentsDirective.js" />
+    <Content Include="Js\comments\commentsViewModel.js" />
     <Content Include="Js\_archive\app.js" />
     <Content Include="Js\_archive\blogDirectives.js" />
     <Content Include="Js\controllers\commentsController.js" />

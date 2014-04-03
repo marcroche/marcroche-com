@@ -2,7 +2,10 @@
 
 @Html.Raw(@Model.HtmlContent)
 
-<div id="comments" title="@Model.Title">
-    
+<div data-ng-controller="CommentsCtrl">
+    <comments />
 </div>
+@*<div id="comments" title="@Model.Title">
+    
+</div>*@
 

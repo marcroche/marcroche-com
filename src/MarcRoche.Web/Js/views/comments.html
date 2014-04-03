@@ -3,23 +3,25 @@
         <div class="left">
             <img width="65" height="65" src="http://www.gravatar.com/avatar/1234" />
         </div>
-        <div class="left comment-form-container" data-bind="with: commentForm">
-            <div>
-                <textarea id="commentContent" placeholder="leave a comment..." data-bind="value: content, css:{ error: showContentError}, validationOptions: { errorElementClass: 'error' }"></textarea>
-            </div>
-            <div class="align-right">
-                <span class="error-message" data-bind="visible: showErrorMessage">* all fields required</span>
-                <img class="valign-middle" data-bind="visible: showWaiting" src="/images/small-loader.gif" />
-                <div class="inputs">
-                    <input type="text" placeholder="display name" data-bind="value: author, css:{ error: showAuthorError}, validationOptions: { errorElementClass: 'error' }" />
+        <div class="left comment-form-container">
+            <form name="newComment" data-ng-submit="createComment(newComment)" novalidate>
+                <div>
+                    <textarea id="commentContent" placeholder="leave a comment...">{{newComment.content}}</textarea><!--data-bind="value: content, css:{ error: showContentError}, validationOptions: { errorElementClass: 'error' }"-->
                 </div>
-                <div class="inputs">
-                    <input type="text" placeholder="email (never displayed)" data-bind="value: email, css:{ error: showEmailError}, validationOptions: { errorElementClass: 'error' }" />
+                <div class="align-right">
+                    <span class="error-message" data-ng-show="newCommentIsValid()">* all fields required</span>
+                    <!--<img class="valign-middle" data-bind="visible: showWaiting" src="/images/small-loader.gif" />-->
+                    <div class="inputs">
+                        <input type="text" placeholder="display name" data-ng-model="newComment.author" required /> <!--data-bind="value: author, css:{ error: showAuthorError}, validationOptions: { errorElementClass: 'error' }"-->
+                    </div>
+                    <div class="inputs">
+                        <input type="text" placeholder="email (never displayed)" data-ng-model="newComment.email" required /> <!--data-bind="value: email, css:{ error: showEmailError}, validationOptions: { errorElementClass: 'error' }"-->
+                    </div>
+                    <div class="inputs">
+                        <button>Submit</button>
+                    </div>
                 </div>
-                <div class="inputs">
-                    <button data-bind="click: createComment">Submit</button>
-                </div>
-            </div>
+            </form>
         </div>
         <div class="clear"></div>
     </div>
