@@ -1,9 +1,9 @@
-﻿function (ko, commentService, CommentForm) {
+﻿function s (ko, commentService, CommentForm) {
 
     var CommentViewModel = function (title) {
         var self = this;
         this.title = title;
-        this.commentsList = ko.observableArray([]);
+        this.commentsList = [];
         this.commentForm = new CommentForm(title);
         this.commentForm.commentAdded.subscribe(function () {
             return self.getCurrentComments();

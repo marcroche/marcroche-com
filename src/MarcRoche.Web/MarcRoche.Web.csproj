@@ -393,10 +393,10 @@
     <Content Include="Js\comments\Comment.js" />
     <Content Include="Js\comments\commentsController.js" />
     <Content Include="Js\comments\commentsDirective.js" />
+    <Content Include="Js\comments\commentsService.js" />
     <Content Include="Js\comments\commentsViewModel.js" />
     <Content Include="Js\_archive\app.js" />
     <Content Include="Js\_archive\blogDirectives.js" />
-    <Content Include="Js\controllers\commentsController.js" />
     <Content Include="Js\main.js" />
     <Content Include="Js\menu.js" />
     <Content Include="Js\models\CommentForm.js" />

@@ -1,8 +1,14 @@
-﻿app.controller("CommentsCtrl", function ($scope) {
+﻿app.controller("CommentsCtrl", ['$scope', 'commentsService', function ($scope, commentsService) {
     var comment = new marcroche_blog.Comment();
 
     $scope.newComment = comment;
-    $scope.comments = [];
+    commentsService.getComments().then(function (data) {
+        if (data === null) {
+            $scope.comments = [];
+        } else {
+            $scope.comments = data;
+        }
+    });
 
     $scope.newCommentIsInvalid = false;
 
@@ -10,9 +16,11 @@
 
         if (form.$valid === false) {
             $scope.newCommentIsInvalid = true;
+        } else {
+            commentsService.createComment($scope.newComment);
         }
 
         console.log("Creating comment");
         console.log("Author: " + $scope.newComment.author);
     };
-}); 
+}]); 

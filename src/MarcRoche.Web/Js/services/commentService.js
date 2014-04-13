@@ -1,5 +1,4 @@
-﻿//define(['jQuery'], function ($) {
-var marcroche_blog.CommentService = function ($) {
+﻿marcroche_blog.CommentService = (function ($) {
     var createComment = function (comment) {
         var options = {
             url: '/api/comments',
@@ -39,9 +38,8 @@ var marcroche_blog.CommentService = function ($) {
         }
     };
 
-    return {
-        getComments: getComments,
-        createComment: createComment
+    return function() {
+        this.getComments = getComments;
+        this.createComment = createComment;
     }
-}
-//);
+})(jQuery);

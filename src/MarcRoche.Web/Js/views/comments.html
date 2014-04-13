@@ -25,18 +25,18 @@
         </div>
         <div class="clear"></div>
     </div>
-    <ul data-ng-repeat="comments">
+    <ul data-ng-repeat="comment in comments">
         <li>
             <div class="left">
                 <img width="65" height="65" class="left" data-bind="attr: { src: 'http://www.gravatar.com/avatar/' + emailHash }" />
             </div>
             <div class="left comment-form-container">
                 <div>
-                    <span class="author-display" data-bind="text: author"></span>
+                    <span class="author-display" data-ng-model="comment.author"></span>
                     -
-                    <span class="publishDate-display" data-bind="text: moment(date).format('MMM Do, YYYY')"></span>
+                    <span class="publishDate-display" data-ng-model="moment(comment.date).format('MMM Do, YYYY')"></span>
                 </div>
-                <p class="content-display" data-bind="text: content"></p>
+                <p class="content-display" data-ng-model="comment.content"></p>
             </div>
             <div class="clear"></div>
             <div class="spacer"></div>
