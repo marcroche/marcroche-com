@@ -1,15 +1,14 @@
-mr_com.Grid = (function (d3, Vertex, Edge) {
+define(['d3', 'model/Vertex', 'model/Edge'], function(d3, Vertex, Edge) {
     var self;
     var id, rows, cols, squareSize, data;
     var isMouseDown = false;
     var isGridReady = true;
     var grid, row, cell, w, h, scaleX, scaleY;
-
+    
     d3.select(window).on('mousedown', function () { isMouseDown = true; });
     d3.select(window).on('mouseup', function () { isMouseDown = false; });
-    //d3.select(window).on('resize', resize);
-
-    function init() {
+    
+        function init() {
         scaleX = d3.scale.linear()
             .domain([0, 1])
             .range([0, w]);
@@ -139,12 +138,12 @@ mr_com.Grid = (function (d3, Vertex, Edge) {
             .attr("viewBox", "0 0 " + w + " 50");
     }
 
-    var api = function (_id, _rows, _cols, _squareSize, _data) {
+    var api = function (_id, _squareSize, _grid) {
         self = this;
-        data = _data;
+        data = _grid.vertices;
         id = _id;
-        cols = _cols;
-        rows = _rows;
+        cols = _grid.cols;
+        rows = _grid.rows;
         squareSize = _squareSize;
         w = cols * squareSize;
         h = rows * squareSize;
@@ -154,7 +153,8 @@ mr_com.Grid = (function (d3, Vertex, Edge) {
         this.update = update;
         this.reset = reset;
         this.complete = complete;
+        this.isGridReady = isGridReady;
     };
 
     return api;
-})(d3, mr_com.Vertex, mr_com.Edge);
+});

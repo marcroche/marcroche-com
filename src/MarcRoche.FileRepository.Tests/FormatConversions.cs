@@ -14,9 +14,9 @@ namespace MarcRoche.FileRepository.Tests
         [TestMethod]
         public void XmlToJson()
         {
-            string xmlPath = @"..\MarcRoche.Web\App_Data\FileData\xml\";
-            string jsonPath = @"..\MarcRoche.Web\App_Data\blog\";
-            string markdownPath = @"..\MarcRoche.Web\App_Data\FileData\markdown\";
+            string xmlPath = @"..\..\..\MarcRoche.Web\App_Data\FileData\xml\";
+            string jsonPath = @"..\..\..\MarcRoche.Web\App_Data\blog\";
+            string markdownPath = @"..\..\..\MarcRoche.Web\App_Data\FileData\markdown\";
 
             foreach (string file in Directory.EnumerateFiles(xmlPath, "*.xml"))
             {

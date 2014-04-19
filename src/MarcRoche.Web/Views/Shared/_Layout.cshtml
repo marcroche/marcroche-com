@@ -95,7 +95,7 @@
 
     @if (@Model is MarcRoche.Model.Blog.BlogPost)
     {
-        @foreach (string script in @Model.ScriptDependencies)
+        foreach (string script in Model.ScriptDependencies)
         {
             @Html.Raw(script)
         }

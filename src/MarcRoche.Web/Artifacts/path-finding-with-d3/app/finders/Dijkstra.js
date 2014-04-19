@@ -1,35 +1,9 @@
-/*function Dijkstra(Graph, source):
-      dist[source] := 0                     // Initializations
-      for each vertex v in Graph:           
-          if v ≠ source
-              dist[v] := infinity           // Unknown distance from source to v
-              previous[v] := undefined      // Predecessor of v7          end if
-          PQ.add_with_priority(v,dist[v])
-      end for 
-
-
-     while PQ is not empty:                // The main loop
-         u := PQ.extract_min()             // Remove and return best vertex
-         for each neighbor v of u:         // where v has not yet been removed from PQ.
-             alt = dist[u] + length(u, v) 
-             if alt < dist[v]              // Relax the edge (u,v) 
-                 dist[v] := alt 
-                 previous[v] := u
-                 PQ.decrease_priority(v,alt)
-             end if
-         end for
-     end while
-     return previous[]
-     */
-
-//TODO: Update this with hasPathTo
-mr_com.Dijkstra = (function (MinPriorityQueue, Q) {
-
+define(['Q', 'model/MinPriorityQueue'], function(Q, MinPriorityQueue) {
     var priorityQueue;
     var distTo = [];
     var shortestEdges = [];
     var startVertex, endVertex;
-
+    
     function relax(edge) {
         var source = edge.source;
         var target = edge.target;
@@ -54,7 +28,7 @@ mr_com.Dijkstra = (function (MinPriorityQueue, Q) {
                 priorityQueue.push(target);
             }
         }
-    };
+    }
 
     function shortestPath(destinationKey) {
         var path = [];
@@ -69,10 +43,14 @@ mr_com.Dijkstra = (function (MinPriorityQueue, Q) {
             path.unshift(e);
         }
         return path;
-    };
+    }
 
-    function search() {
+    function search(_startVertex, _endVertex) {
         var deferred = Q.defer();
+        
+        startVertex = _startVertex;
+        endVertex = _endVertex;
+
         priorityQueue.push(startVertex);
         shortestEdges = [];
 
@@ -107,17 +85,13 @@ mr_com.Dijkstra = (function (MinPriorityQueue, Q) {
         }, 25);
 
         return deferred.promise;
-    };
+    }
 
-    var api = function (_startVertex, _endVertex) {
-        startVertex = _startVertex;
-        endVertex = _endVertex;
+    var api = function () {
         priorityQueue = new MinPriorityQueue('key', 'cost', []);
-        //priorityQueue.push(startVertex);
 
         this.search = search;
     };
 
     return api;
-
-})(mr_com.MinPriorityQueue, Q);
+});

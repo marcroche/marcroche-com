@@ -9,8 +9,8 @@ I am continuing my explorations into <a href="http://d3js.org/" target="_blank">
 To use the demo below, draw some obstacles for the path finder to go around and then press start. It will search the grid, at a slowed speed for visualization, and find the shortest path to the end square.
 
 <div id="grid" style="height: 500px"></div>
-<button onclick='start()'>Start</button>
-<button onclick='reset()'>Reset</button>
+<button id="startButton">Start</button>
+<button id="resetButton">Reset</button>
 
 ##The Core D3 Code
 
