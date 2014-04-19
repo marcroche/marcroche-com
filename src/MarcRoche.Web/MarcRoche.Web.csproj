@@ -397,11 +397,9 @@
     <Content Include="Js\comments\commentsViewModel.js" />
     <Content Include="Js\_archive\app.js" />
     <Content Include="Js\_archive\blogDirectives.js" />
-    <Content Include="Js\main.js" />
     <Content Include="Js\menu.js" />
     <Content Include="Js\models\CommentForm.js" />
     <Content Include="Js\models\CommentViewModel.js" />
-    <Content Include="Js\router.js" />
     <Content Include="Js\services\commentService.js" />
     <Content Include="Js\_archive\submitComment.js" />
     <Content Include="Js\views\comments.html" />

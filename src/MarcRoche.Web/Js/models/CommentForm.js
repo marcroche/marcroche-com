@@ -1,7 +1,6 @@
 ﻿define(['knockout', 'services/commentService'], function (ko, commentService) {
     var CommentForm = function (title) {
         var self = this;
-        //self.errors = knockoutvalidation.group(self); //when ko validation is working
         self.title = ko.observable(title);
         self.author = ko.observable().extend({ required: true, maxLength: 50 });
         self.content = ko.observable().extend({ required: true, maxLength: 500 });

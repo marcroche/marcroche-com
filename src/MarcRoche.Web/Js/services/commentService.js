@@ -15,7 +15,7 @@
         }
 
         function queryFailed(jqXHR, textStatus) {
-            //Do something
+            //handle failure
         }
     };
 
@@ -34,7 +34,7 @@
         }
 
         function queryFailed(jqXHR, textStatus) {
-            //Do something
+            //handle failure
         }
     };
 

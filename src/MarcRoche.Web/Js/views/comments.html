@@ -4,7 +4,7 @@
             <img width="65" height="65" src="http://www.gravatar.com/avatar/1234" />
         </div>
         <div class="left comment-form-container">
-            <form name="newComment" data-ng-submit="createComment(newComment)" novalidate>
+            <form name="newCommentForm" novalidate> <!--data-ng-submit="createComment(newComment)"-->
                 <div>
                     <textarea id="commentContent" placeholder="leave a comment..." data-ng-model="newComment.content" required></textarea>
                 </div>
@@ -18,7 +18,7 @@
                         <input type="text" placeholder="email (never displayed)" data-ng-model="newComment.email" required />
                     </div>
                     <div class="inputs">
-                        <button type="submit">Submit</button>
+                        <button data-ng-click="createComment(newComment)">Submit</button>
                     </div>
                 </div>
             </form>
@@ -32,11 +32,11 @@
             </div>
             <div class="left comment-form-container">
                 <div>
-                    <span class="author-display" data-ng-model="comment.author"></span>
+                    <span class="author-display">{{ comment.author }}</span>
                     -
-                    <span class="publishDate-display" data-ng-model="moment(comment.date).format('MMM Do, YYYY')"></span>
+                    <span class="publishDate-display">{{ comment.date }}</span>
                 </div>
-                <p class="content-display" data-ng-model="comment.content"></p>
+                <p class="content-display">{{ comment.content }}</p>
             </div>
             <div class="clear"></div>
             <div class="spacer"></div>

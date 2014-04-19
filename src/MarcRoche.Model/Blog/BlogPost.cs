@@ -52,7 +52,7 @@ namespace MarcRoche.Model.Blog
             XElement scripts = new XElement("Scripts");
             blogPost.ScriptDependencies.ToList().ForEach(s =>
             {
-                scripts.Add(new XElement("Script", s));
+                scripts.Add(new XElement("Script", new XCData(s)));
             });
 
             return new XElement("BlogPost",
@@ -61,8 +61,8 @@ namespace MarcRoche.Model.Blog
                 new XAttribute("id", blogPost.Id.ToString()),
                 new XAttribute("author", blogPost.Author ?? string.Empty),
                 scripts,
-                new XElement("Content", XElement.Parse(blogPost.Content)),
-                new XElement("HtmlContent", XElement.Parse(blogPost.HtmlContent)));
+                new XElement("Content", !string.IsNullOrEmpty(blogPost.Content) ? XElement.Parse(blogPost.Content) : null),
+                new XElement("HtmlContent", !string.IsNullOrEmpty(blogPost.HtmlContent) ? XElement.Parse(blogPost.HtmlContent) : null));
         }
 
         public static explicit operator BlogPost(XElement xml)

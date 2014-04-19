@@ -89,20 +89,23 @@
     <script src="/Js/comments/commentsService.js" type="text/javascript"></script>
     <script src="/Js/comments/commentsController.js" type="text/javascript"></script>
     <script src="/Js/comments/commentsDirective.js" type="text/javascript"></script>
-    
+
 
     @RenderSection("scripts", required: false)
 
     @if (@Model is MarcRoche.Model.Blog.BlogPost)
     {
-        @Scripts.Render(@Model.ScriptDependencies.ToArray())
+        @foreach (string script in @Model.ScriptDependencies)
+        {
+            @Html.Raw(script)
+        }
+        @*@Scripts.RenderFormat("<script type=\"text/javascript\" src=\"{0}\"></script>", @Model.ScriptDependencies.ToArray())*@
     }
 
-    @*<script src="/Js/model/BlogComment.js" type="text/javascript"></script>
-        <script src="/Js/submitComment.js" type="text/javascript"></script>*@
+    @*@Scripts.RenderFormat("<script type=\"text/javascript\" src=\"{0}\"></script>","<Path to script bundle>")*@
 
-    @*<script data-main="/Js/main" src="/Scripts/require.js" type="text/javascript"></script>*@
-    @*<script src="/Js/app.js" type="text/javascript"></script>
-        <script src="/Js/blogDirectives.js" type="text/javascript"></script>*@
-</body>
+        @*<script data-main="/Js/main" src="/Scripts/require.js" type="text/javascript"></script>*@
+
+    </body>
+
 </html>
