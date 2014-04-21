@@ -1,7 +1,7 @@
 ﻿<BlogPost title="HTML5 Native Drag and Drop" publishdate="01/12/2014 12:00:00 AM" id="49813CFF-632B-44E0-9BCC-57914C69F374" author="marcroche">
     <Scripts>
-        <Script>/artifacts/html5-native-drag-and-drop/draggableTiles.js</Script>
-        <Script>http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js</Script>
+        <Script><![CDATA[<script src="/artifacts/html5-native-drag-and-drop/draggableTiles.js"></script>]]></Script>
+        <Script><![CDATA[<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>]]></Script>
     </Scripts>
     <Content />
 </BlogPost>

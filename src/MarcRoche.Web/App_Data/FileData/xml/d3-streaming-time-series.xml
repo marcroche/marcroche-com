@@ -1,6 +1,6 @@
 ﻿<BlogPost title="D3 Streaming Time Series" publishdate="12/21/2013 12:00:00 AM" id="73615181-963f-46b2-975d-dc934d527cfc" author="marcroche">
     <Scripts>
-        <Script>/artifacts/d3-streaming-time-series/model.js</Script>
+        <Script><![CDATA[<script src="/artifacts/d3-streaming-time-series/model.js"></script>]]></Script>
     </Scripts>
     <Content />
 </BlogPost>
