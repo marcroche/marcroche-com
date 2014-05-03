@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarcRoche.Services", "MarcR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarcRoche.Services.Contracts", "MarcRoche.Services.Contracts\MarcRoche.Services.Contracts.csproj", "{8C68361D-6713-4F7F-BBD8-CC48F509828B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{94F47682-D711-4F08-9854-A21E144F9075}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{94F47682-D711-4F08-9854-A21E144F9075}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{CF0AA54A-69EF-47F0-8372-FB0167A6E08A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{CF0AA54A-69EF-47F0-8372-FB0167A6E08A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{53B5C2B1-E63E-46DF-A7CB-0FC7F645A2B4}"
 EndProject
