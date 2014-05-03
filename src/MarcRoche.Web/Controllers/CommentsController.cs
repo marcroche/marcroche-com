@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using MarcRoche.Model.Blog;
+using MarcRoche.Domain.Blog;
 using MarcRoche.Services.Contracts;
 using MarcRoche.Web.Models;
 

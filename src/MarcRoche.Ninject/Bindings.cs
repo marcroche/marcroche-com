@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Kiwi.Markdown;
-using MarcRoche.Model.Blog;
+using MarcRoche.Domain.Blog;
 using MarcRoche.Repository.FileSystem;
 using MarcRoche.Services;
 using MarcRoche.Services.Contracts;

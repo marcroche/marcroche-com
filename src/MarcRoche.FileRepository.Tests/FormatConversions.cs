@@ -2,7 +2,7 @@
 using System.IO;
 using System.Xml.Linq;
 using MarcRoche.FileRepository.Tests.Helpers;
-using MarcRoche.Model.Blog;
+using MarcRoche.Domain.Blog;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 

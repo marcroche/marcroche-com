@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Routing;
-using MarcRoche.Model.Blog;
+using MarcRoche.Domain.Blog;
 using MarcRoche.Services.Contracts;
 
 namespace MarcRoche.Web.Controllers

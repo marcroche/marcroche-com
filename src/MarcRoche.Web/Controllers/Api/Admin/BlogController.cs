@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using MarcRoche.Model.Blog;
+using MarcRoche.Domain.Blog;
 using MarcRoche.Services.Contracts;
 
 namespace MarcRoche.Web.Controllers.Api.Admin

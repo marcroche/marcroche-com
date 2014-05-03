@@ -4,7 +4,7 @@ using System.Runtime.Caching;
 using MarcRoche.Services.Contracts;
 using Repository;
 using System.Linq;
-using MarcRoche.Model.Blog;
+using MarcRoche.Domain.Blog;
 using System.Security.Cryptography;
 using System.Text;
 using MarcRoche.Common;

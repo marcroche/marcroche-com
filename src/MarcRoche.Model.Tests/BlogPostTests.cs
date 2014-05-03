@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Xml.Linq;
-using MarcRoche.Model.Blog;
+using MarcRoche.Domain.Blog;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using System.Collections.Generic;

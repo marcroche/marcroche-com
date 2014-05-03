@@ -1,4 +1,4 @@
-﻿namespace MarcRoche.Model.Events
+﻿namespace MarcRoche.Domain.Events
 {
     public class LinkedPostAddedToTagEvent : IDomainEvent
     {

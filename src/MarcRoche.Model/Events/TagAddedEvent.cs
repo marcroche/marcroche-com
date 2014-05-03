@@ -1,6 +1,6 @@
-﻿using MarcRoche.Model.Admin;
+﻿using MarcRoche.Domain.Admin;
 
-namespace MarcRoche.Model.Events
+namespace MarcRoche.Domain.Events
 {
     public class TagAddedEvent : IDomainEvent
     {

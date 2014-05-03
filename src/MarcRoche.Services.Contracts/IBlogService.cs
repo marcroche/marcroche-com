@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using MarcRoche.Model.Blog;
+using MarcRoche.Domain.Blog;
 
 namespace MarcRoche.Services.Contracts
 {

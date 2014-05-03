@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MarcRoche.Model.Events;
+using MarcRoche.Domain.Events;
 
 namespace MarcRoche.Services.Handlers
 {

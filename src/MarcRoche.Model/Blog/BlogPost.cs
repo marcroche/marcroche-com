@@ -4,7 +4,7 @@ using System.Text;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace MarcRoche.Model.Blog
+namespace MarcRoche.Domain.Blog
 {
     public class BlogPost
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MarcRoche.Model.Events;
+using MarcRoche.Domain.Events;
 
-namespace MarcRoche.Model.Admin
+namespace MarcRoche.Domain.Admin
 {
     public class Tags
     {

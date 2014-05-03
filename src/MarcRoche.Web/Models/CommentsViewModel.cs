@@ -1,4 +1,4 @@
-﻿using MarcRoche.Model.Blog;
+﻿using MarcRoche.Domain.Blog;
 
 namespace MarcRoche.Web.Models
 {

@@ -1,5 +1,5 @@
 ﻿using System;
-using MarcRoche.Model.Events;
+using MarcRoche.Domain.Events;
 
 namespace MarcRoche.Services.Handlers
 {

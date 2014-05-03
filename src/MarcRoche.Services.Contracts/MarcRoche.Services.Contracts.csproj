@@ -48,9 +48,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MarcRoche.Model\MarcRoche.Model.csproj">
-      <Project>{a0f8949f-8304-4fd5-85e1-ca19e36fdbd5}</Project>
-      <Name>MarcRoche.Model</Name>
+    <ProjectReference Include="..\MarcRoche.Model\MarcRoche.Domain.csproj">
+      <Project>{06AA32F1-3013-4AA2-A291-320A2E37E0CB}</Project>
+      <Name>MarcRoche.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

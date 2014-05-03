@@ -66,9 +66,9 @@
       <Project>{15be3915-e2d0-4262-bc92-8233d0dd57ca}</Project>
       <Name>MarcRoche.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MarcRoche.Model\MarcRoche.Model.csproj">
-      <Project>{a0f8949f-8304-4fd5-85e1-ca19e36fdbd5}</Project>
-      <Name>MarcRoche.Model</Name>
+    <ProjectReference Include="..\MarcRoche.Model\MarcRoche.Domain.csproj">
+      <Project>{06AA32F1-3013-4AA2-A291-320A2E37E0CB}</Project>
+      <Name>MarcRoche.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\MarcRoche.Services.Contracts\MarcRoche.Services.Contracts.csproj">
       <Project>{8c68361d-6713-4f7f-bbd8-cc48f509828b}</Project>

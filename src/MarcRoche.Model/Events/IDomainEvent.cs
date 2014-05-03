@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarcRoche.Model.Events
+namespace MarcRoche.Domain.Events
 {
     public interface IDomainEvent
     {

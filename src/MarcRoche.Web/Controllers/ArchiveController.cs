@@ -3,7 +3,7 @@ using MarcRoche.Services.Contracts;
 using System.Linq;
 using System.Globalization;
 using MarcRoche.Web.Models;
-using MarcRoche.Model.Blog;
+using MarcRoche.Domain.Blog;
 using System;
 
 namespace MarcRoche.Web.Controllers

@@ -93,7 +93,7 @@
 
     @RenderSection("scripts", required: false)
 
-    @if (@Model is MarcRoche.Model.Blog.BlogPost)
+    @if (@Model is MarcRoche.Domain.Blog.BlogPost)
     {
         foreach (string script in Model.ScriptDependencies)
         {

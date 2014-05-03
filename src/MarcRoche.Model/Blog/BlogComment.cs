@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MarcRoche.Model.Blog
+namespace MarcRoche.Domain.Blog
 {
     public class BlogComment
     {

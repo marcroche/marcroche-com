@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MarcRoche.Model.Blog;
+using MarcRoche.Domain.Blog;
 using MarcRoche.Services.Contracts;
 
 namespace MarcRoche.Services

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Linq;
 
-namespace MarcRoche.Model.Blog.Serialization
+namespace MarcRoche.Domain.Blog.Serialization
 {
     public class BlogPostSerializer
     {
