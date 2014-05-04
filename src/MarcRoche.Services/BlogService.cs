@@ -62,20 +62,20 @@ namespace MarcRoche.Services
 
         public void CreateComment(string title, BlogComment blogComment)
         {
-            blogComment.Date = DateTime.UtcNow;
-            blogComment.Id = Guid.NewGuid();
-            blogComment.EmailHash = HashEmailForGravatar(blogComment.Email);
-            blogComment.Content = HtmlSanitizer.SanitizeHtml(blogComment.Content);
+            //blogComment.Date = DateTime.UtcNow;
+            //blogComment.Id = Guid.NewGuid();
+            //blogComment.EmailHash = HashEmailForGravatar(blogComment.Email);
+            //blogComment.Content = HtmlSanitizer.SanitizeHtml(blogComment.Content);
 
-            IList<BlogComment> comments = _blogCommentRepository.Get(title.ToLower().Replace(" ", "-"));
+            //IList<BlogComment> comments = _blogCommentRepository.Get(title.ToLower().Replace(" ", "-"));
 
-            if(comments == null)
-            {
-                comments = new List<BlogComment>(); 
-            }
+            //if(comments == null)
+            //{
+            //    comments = new List<BlogComment>(); 
+            //}
 
-            comments.Add(blogComment);
-            _blogCommentRepository.Create(title.ToLower().Replace(" ", "-"), comments);
+            //comments.Add(blogComment);
+            //_blogCommentRepository.Create(title.ToLower().Replace(" ", "-"), comments);
         }
 
         private static string HashEmailForGravatar(string email)

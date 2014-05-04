@@ -4,6 +4,8 @@ using System.Runtime.InteropServices;
 
 
 [assembly: InternalsVisibleTo("MarcRoche.Repository.Mongo.Tests")]
+[assembly: InternalsVisibleTo("MarcRoche.IoC")]
+[assembly: InternalsVisibleTo("MarcRoche.Services")]
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information

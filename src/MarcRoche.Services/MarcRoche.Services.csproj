@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutMeService.cs" />
     <Compile Include="AdminService.cs" />
     <Compile Include="BlogService.cs" />
     <Compile Include="Handlers\LinkedPostAddedToTagHandler.cs" />

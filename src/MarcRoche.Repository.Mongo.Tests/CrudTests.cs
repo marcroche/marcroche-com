@@ -1,6 +1,6 @@
 ﻿using System;
 using MarcRoche.Domain.Blog;
-using MarcRoche.Repository.Mongo.Model;
+using MarcRoche.Repository.Mongo.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;

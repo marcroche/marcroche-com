@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAboutMeService.cs" />
     <Compile Include="IAdminService.cs" />
     <Compile Include="IBlogService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
