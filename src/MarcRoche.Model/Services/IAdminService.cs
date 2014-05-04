@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using MarcRoche.Domain.Blog;
 
-namespace MarcRoche.Services.Contracts
+namespace MarcRoche.Domain.Services
 {
     public interface IAdminService
     {

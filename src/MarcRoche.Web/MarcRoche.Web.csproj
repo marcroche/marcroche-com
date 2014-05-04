@@ -540,10 +540,6 @@
       <Project>{e3c7b540-f1ca-40ee-af0f-95ee27d5bd2d}</Project>
       <Name>MarcRoche.IoC</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MarcRoche.Services.Contracts\MarcRoche.Services.Contracts.csproj">
-      <Project>{8c68361d-6713-4f7f-bbd8-cc48f509828b}</Project>
-      <Name>MarcRoche.Services.Contracts</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

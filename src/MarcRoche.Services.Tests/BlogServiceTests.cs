@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using MarcRoche.Domain.Blog;
-using MarcRoche.Services.Contracts;
+using MarcRoche.Domain.Services;
+using MarcRoche.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Repository;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Caching;
-using MarcRoche.Services.Contracts;
+using MarcRoche.Domain.Services;
 using Repository;
 using System.Linq;
 using MarcRoche.Domain.Blog;

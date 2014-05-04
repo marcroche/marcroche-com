@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarcRoche.Services.Contracts
+namespace MarcRoche.Domain.Services
 {
     public interface IAboutMeService
     {

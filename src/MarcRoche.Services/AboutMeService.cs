@@ -1,4 +1,4 @@
-﻿using MarcRoche.Services.Contracts;
+﻿using MarcRoche.Domain.Services;
 
 namespace MarcRoche.Services
 {

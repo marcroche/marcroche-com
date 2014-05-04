@@ -68,10 +68,6 @@
       <Project>{15be3915-e2d0-4262-bc92-8233d0dd57ca}</Project>
       <Name>MarcRoche.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MarcRoche.FileRepository\MarcRoche.Repository.FileSystem.csproj">
-      <Project>{71dc42a0-e09b-47e6-ac20-98c5a98e5c0f}</Project>
-      <Name>MarcRoche.Repository.FileSystem</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MarcRoche.Model\MarcRoche.Domain.csproj">
       <Project>{06aa32f1-3013-4aa2-a291-320a2e37e0cb}</Project>
       <Name>MarcRoche.Domain</Name>
@@ -79,10 +75,6 @@
     <ProjectReference Include="..\MarcRoche.Repository.Mongo\MarcRoche.Repository.Mongo.csproj">
       <Project>{cdf534e2-fe1a-4289-8c92-63be03d32e6f}</Project>
       <Name>MarcRoche.Repository.Mongo</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MarcRoche.Services.Contracts\MarcRoche.Services.Contracts.csproj">
-      <Project>{8c68361d-6713-4f7f-bbd8-cc48f509828b}</Project>
-      <Name>MarcRoche.Services.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\MarcRoche.Services\MarcRoche.Services.csproj">
       <Project>{6b6356cb-f5ab-40a1-80f7-f4d36ff349d8}</Project>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MarcRoche.Domain.Blog;
-using MarcRoche.Services.Contracts;
+using MarcRoche.Domain.Services;
 
 namespace MarcRoche.Services
 {

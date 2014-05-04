@@ -68,10 +68,6 @@
       <Project>{06aa32f1-3013-4aa2-a291-320a2e37e0cb}</Project>
       <Name>MarcRoche.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MarcRoche.Services.Contracts\MarcRoche.Services.Contracts.csproj">
-      <Project>{8c68361d-6713-4f7f-bbd8-cc48f509828b}</Project>
-      <Name>MarcRoche.Services.Contracts</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MarcRoche.Services\MarcRoche.Services.csproj">
       <Project>{6b6356cb-f5ab-40a1-80f7-f4d36ff349d8}</Project>
       <Name>MarcRoche.Services</Name>

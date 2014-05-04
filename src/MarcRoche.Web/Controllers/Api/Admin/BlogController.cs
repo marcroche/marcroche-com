@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web.Http;
 using MarcRoche.Domain.Blog;
-using MarcRoche.Services.Contracts;
+using MarcRoche.Domain.Services;
 
 namespace MarcRoche.Web.Controllers.Api.Admin
 {

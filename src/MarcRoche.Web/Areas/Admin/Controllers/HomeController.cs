@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MarcRoche.Services.Contracts;
+using MarcRoche.Domain.Services;
 
 namespace MarcRoche.Web.Areas.Admin.Controllers
 {
