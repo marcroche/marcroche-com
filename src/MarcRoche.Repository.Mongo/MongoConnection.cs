@@ -4,7 +4,7 @@ using MongoDB.Driver;
 
 namespace MarcRoche.Repository.Mongo
 {
-    internal class MongoConnection<TEntity> where TEntity : IMongoEntity
+    public class MongoConnection<TEntity> where TEntity : IMongoEntity
     {
         private readonly IConfigurationService _configurationService;
 
@@ -16,7 +16,8 @@ namespace MarcRoche.Repository.Mongo
             MongoClient mongoClient = new MongoClient(_configurationService.GetApplicationSetting("mongoConnectionString"));
             MongoServer mongoServer = mongoClient.GetServer();
             MongoDatabase db = mongoServer.GetDatabase(_configurationService.GetApplicationSetting("database"));
-            MongoCollection = db.GetCollection<TEntity>(typeof(TEntity).Name.ToLower() + "s");
+            MongoCollection = db.GetCollection<TEntity>("posts");
+            //typeof(TEntity).Attributes
         }
     }
 }

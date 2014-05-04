@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using MarcRoche.Common.Infrastructure;
 using MarcRoche.Repository.Mongo.Entities.Base;
 using MongoDB.Bson;
@@ -9,10 +10,10 @@ using Repository;
 
 namespace MarcRoche.Repository.Mongo
 {
-    internal class MongoRepository<TEntity> : IRepository<TEntity> where TEntity : IMongoEntity
+    public class MongoRepository<TEntity> : IRepository<TEntity> where TEntity : IMongoEntity
     {
         private readonly IConfigurationService _configurationService;
-        protected readonly MongoConnection<TEntity> _mongoConnection;
+        private readonly MongoConnection<TEntity> _mongoConnection;
 
         public MongoRepository(IConfigurationService configurationService)
         {
@@ -39,20 +40,26 @@ namespace MarcRoche.Repository.Mongo
 
         public TEntity Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            var result = _mongoConnection.MongoCollection.Update(
+                    Query<TEntity>.EQ(p => p.Id, entity.Id),
+                    Update<TEntity>.Replace(entity),
+                    new MongoUpdateOptions
+                    {
+                        WriteConcern = WriteConcern.Acknowledged
+                    });
+
+            if (result.DocumentsAffected == 0)
+            {
+                throw new Exception("Error updating");
+            }
+
+            return entity;
         }
 
         public TEntity Get<T>(T id)
         {
             IMongoQuery entityQuery = Query<TEntity>.EQ(e => e.Id, new ObjectId(id.ToString()));
             return _mongoConnection.MongoCollection.FindOne(entityQuery);
-        }
-
-        public IEnumerable<TEntity> GetAll()
-        {
-            //IMongoQuery entityQuery = Query<TEntity>.All
-            //return MongoConnection.MongoCollectio(entityQuery);
-            return new List<TEntity>();
         }
 
         public bool Delete(string id)
@@ -69,14 +76,11 @@ namespace MarcRoche.Repository.Mongo
             }
             return true;
         }
-    }
 
-    //internal interface IRepository<TEntity>
-    //{
-    //    TEntity Create(TEntity entity);
-    //    TEntity Update(TEntity entity);
-    //    TEntity Get<T>(T id);
-    //    IEnumerable<TEntity> GetAll();
-    //    bool Delete(string id);
-    //}
+        public TEntity Get(Expression<Func<TEntity, string>> property, string value)
+        {
+            IMongoQuery entityQuery = Query<TEntity>.EQ(property, value);
+            return _mongoConnection.MongoCollection.FindOne(entityQuery);
+        }
+    }
 }

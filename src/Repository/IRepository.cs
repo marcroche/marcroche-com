@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Repository
 {
@@ -8,13 +9,7 @@ namespace Repository
         TEntity Create(TEntity entity);
         TEntity Update(TEntity entity);
         TEntity Get<T>(T id);
-        IEnumerable<TEntity> GetAll();
+        TEntity Get(Expression<Func<TEntity, string>> property, string value);
         bool Delete(string id);
-
-        //TEntity Get(Guid id);
-        //TEntity Get(int id);
-        //TEntity Get(string id);
-        //IEnumerable<TEntity> GetAll();
-        //TEntity Create<TKey>(TKey key, TEntity entity);
     }
 }

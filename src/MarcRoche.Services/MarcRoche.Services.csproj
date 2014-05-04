@@ -71,6 +71,10 @@
       <Project>{06aa32f1-3013-4aa2-a291-320a2e37e0cb}</Project>
       <Name>MarcRoche.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MarcRoche.Repository.Mongo\MarcRoche.Repository.Mongo.csproj">
+      <Project>{cdf534e2-fe1a-4289-8c92-63be03d32e6f}</Project>
+      <Name>MarcRoche.Repository.Mongo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Repository\Repository.csproj">
       <Project>{cec3f80b-3801-4890-a8f2-8634e2302f0b}</Project>
       <Name>Repository</Name>

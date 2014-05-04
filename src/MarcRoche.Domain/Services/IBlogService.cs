@@ -6,7 +6,7 @@ namespace MarcRoche.Domain.Services
 {
     public interface IBlogService
     {
-        AboutMe GetAboutMe();
+        //AboutMe GetAboutMe();
         IEnumerable<BlogPost> GetArchive(int year, int month);
         IEnumerable<BlogPost> Search(string searchText);
         BlogPost GetPostByTitle(string title);

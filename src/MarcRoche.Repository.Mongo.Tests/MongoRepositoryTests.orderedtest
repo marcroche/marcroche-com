@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OrderedTest name="mongorepositorytests" storage="c:\development\github\marcroche-com\src\marcroche.repository.mongo.tests\mongorepositorytests.orderedtest" id="572a579d-c0b0-4c04-bc4f-b77fb37df9ef" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestLinks>
+    <TestLink id="a19ded73-04f8-b60b-dfdb-f6117f93e922" name="CanCreateMongoEntity" storage="bin\debug\marcroche.repository.mongo.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="eb9765b1-06e8-e3a7-84f3-f98cd013640d" name="CanGetMongoEntity" storage="bin\debug\marcroche.repository.mongo.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="03e7f84e-39b0-e748-596a-09cd75ddb0da" name="CanUpdateMongoEntity" storage="bin\debug\marcroche.repository.mongo.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="280d5520-a538-89d4-8552-c6f9d5d2f8d1" name="CanDeleteMongoEntity" storage="bin\debug\marcroche.repository.mongo.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </TestLinks>
+</OrderedTest>

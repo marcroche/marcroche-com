@@ -8,28 +8,24 @@ using MarcRoche.Domain.Blog;
 using System.Security.Cryptography;
 using System.Text;
 using MarcRoche.Common;
+using MarcRoche.Repository.Mongo.Entities;
 
 namespace MarcRoche.Services
 {
     public class BlogService : IBlogService
     {
-        private readonly IRepository<BlogPost> _blogRepository;
-        private readonly IRepository<AboutMe> _aboutMeRepository;
-        private readonly IRepository<IList<BlogComment>> _blogCommentRepository;
+        private readonly IRepository<BlogPostEntity> _blogRepository;
+        private readonly IRepository<AboutMeEntity> _aboutMeRepository;
+        private readonly IRepository<IList<BlogCommentEntity>> _blogCommentRepository;
 
         public BlogService(
-            IRepository<BlogPost> blogRepository, 
-            IRepository<AboutMe> aboutMeRepository,
-            IRepository<IList<BlogComment>> blogCommentRepository)
+            IRepository<BlogPostEntity> blogRepository,
+            IRepository<AboutMeEntity> aboutMeRepository,
+            IRepository<IList<BlogCommentEntity>> blogCommentRepository)
         {
             _blogRepository = blogRepository;
             _aboutMeRepository = aboutMeRepository;
             _blogCommentRepository = blogCommentRepository;
-        }
-
-        public AboutMe GetAboutMe()
-        {
-            return _aboutMeRepository.GetAll().FirstOrDefault(x => x.Id == AboutMe.CacheKey);
         }
 
         public IEnumerable<BlogPost> GetArchive(int year, int month)

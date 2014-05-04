@@ -5,8 +5,10 @@ using MongoDB.Bson.Serialization.Attributes;
 namespace MarcRoche.Repository.Mongo.Entities
 {
     [BsonIgnoreExtraElements]
-    internal class AboutMeEntity : MongoEntity
+    public class AboutMeEntity : MongoEntity
     {
+        public static string Collection = "about";
+
         [BsonElement("author")] 
         public string Author { get; set; }
         [BsonElement("content")] 
