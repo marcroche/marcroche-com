@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarcRoche.Repository.Mongo"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarcRoche.Repository.Mongo.Tests", "MarcRoche.Repository.Mongo.Tests\MarcRoche.Repository.Mongo.Tests.csproj", "{90DF74DF-37CC-47A3-BDA9-AB03CF11791C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarcRoche.Web", "MarcRoche.Web\MarcRoche.Web.csproj", "{971FA4A3-CE2E-402B-A361-0B5AFF6201E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{90DF74DF-37CC-47A3-BDA9-AB03CF11791C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90DF74DF-37CC-47A3-BDA9-AB03CF11791C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90DF74DF-37CC-47A3-BDA9-AB03CF11791C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{971FA4A3-CE2E-402B-A361-0B5AFF6201E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{971FA4A3-CE2E-402B-A361-0B5AFF6201E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{971FA4A3-CE2E-402B-A361-0B5AFF6201E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{971FA4A3-CE2E-402B-A361-0B5AFF6201E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
