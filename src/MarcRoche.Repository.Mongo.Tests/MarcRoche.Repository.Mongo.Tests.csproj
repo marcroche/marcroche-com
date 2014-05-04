@@ -64,7 +64,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MarcRoche.Model\MarcRoche.Domain.csproj">
+    <ProjectReference Include="..\MarcRoche.Domain\MarcRoche.Domain.csproj">
       <Project>{06aa32f1-3013-4aa2-a291-320a2e37e0cb}</Project>
       <Name>MarcRoche.Domain</Name>
     </ProjectReference>
