@@ -10,10 +10,10 @@ namespace MarcRoche.Web.Controllers
     [RoutePrefix("blog")]
     public class BlogController : Controller
     {
-        private readonly IBlogService _blogService;
+        private readonly IAboutService _blogService;
         private DateTimeFormatInfo _dateTimeFormatInfo = new DateTimeFormatInfo();
 
-        public BlogController(IBlogService blogService)
+        public BlogController(IAboutService blogService)
         {
             _blogService = blogService;
         }

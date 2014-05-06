@@ -24,7 +24,7 @@ namespace MarcRoche.Repository.Mongo.Tests
             Mock<IConfigurationService> configurationService = new Mock<IConfigurationService>();
             configurationService.Setup(x => x.GetApplicationSetting("database")).Returns(() =>
                 {
-                    return "blog-test";
+                    return "blog";
                 });
             configurationService.Setup(x => x.GetApplicationSetting("mongoConnectionString")).Returns(() =>
             {

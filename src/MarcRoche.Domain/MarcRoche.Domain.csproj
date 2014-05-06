@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Admin\Tags.cs" />
     <Compile Include="Blog\AboutMe.cs" />
+    <Compile Include="Blog\Archive\Archive.cs" />
+    <Compile Include="Blog\Archive\ArchiveItem.cs" />
     <Compile Include="Blog\BlogComment.cs" />
     <Compile Include="Blog\BlogPost.cs" />
     <Compile Include="Blog\Serialization\BlogPostSerializer.cs" />
@@ -54,7 +56,7 @@
     <Compile Include="Events\TagAddedEvent.cs" />
     <Compile Include="Events\IDomainEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IAboutMeService.cs" />
+    <Compile Include="Services\IAboutService.cs" />
     <Compile Include="Services\IAdminService.cs" />
     <Compile Include="Services\IBlogService.cs" />
   </ItemGroup>

@@ -16,13 +16,13 @@ namespace MarcRoche.Services.Tests
         [TestMethod]
         public void Can_GetAboutMe_Test()
         {
-            IBlogService blogService = new BlogService(_blogPostRepo.Object, _aboutMeRepo.Object, _blogCommentRepository.Object);
+            IAboutService blogService = new BlogService(_blogPostRepo.Object, _aboutMeRepo.Object, _blogCommentRepository.Object);
 
-            AboutMe actual = blogService.GetAboutMe();
+            About actual = blogService.GetAboutMe();
 
             Assert.AreEqual("test-user", actual.Author);
             Assert.AreEqual("Test about me content", actual.Content);
-            Assert.AreEqual(AboutMe.CacheKey, actual.Id);
+            Assert.AreEqual(About.CacheKey, actual.Id);
             Assert.AreEqual(DateTime.Parse("1/1/2013"), actual.PublishDate);
             Assert.AreEqual("About Me Title", actual.Title);
         }
@@ -30,7 +30,7 @@ namespace MarcRoche.Services.Tests
         [TestMethod]
         public void Can_GetArchive_Test()
         {
-            IBlogService blogService = new BlogService(_blogPostRepo.Object, _aboutMeRepo.Object, _blogCommentRepository.Object);
+            IAboutService blogService = new BlogService(_blogPostRepo.Object, _aboutMeRepo.Object, _blogCommentRepository.Object);
 
             IEnumerable<BlogPost> actual = blogService.GetArchive(2013, 1);
 
@@ -41,7 +41,7 @@ namespace MarcRoche.Services.Tests
         [TestMethod]
         public void Can_GetLatestPost_Test()
         {
-            IBlogService blogService = new BlogService(_blogPostRepo.Object, _aboutMeRepo.Object, _blogCommentRepository.Object);
+            IAboutService blogService = new BlogService(_blogPostRepo.Object, _aboutMeRepo.Object, _blogCommentRepository.Object);
 
             BlogPost actual = blogService.GetLatestPost();
 
@@ -51,7 +51,7 @@ namespace MarcRoche.Services.Tests
         [TestMethod]
         public void Can_GetPostByTitle_Test()
         {
-            IBlogService blogService = new BlogService(_blogPostRepo.Object, _aboutMeRepo.Object, _blogCommentRepository.Object);
+            IAboutService blogService = new BlogService(_blogPostRepo.Object, _aboutMeRepo.Object, _blogCommentRepository.Object);
 
             BlogPost actual = blogService.GetPostByTitle("Test Blog Title 2");
 
@@ -61,7 +61,7 @@ namespace MarcRoche.Services.Tests
         [TestMethod]
         public void Can_GetComments_Test()
         {
-            IBlogService blogService = new BlogService(_blogPostRepo.Object, _aboutMeRepo.Object, _blogCommentRepository.Object);
+            IAboutService blogService = new BlogService(_blogPostRepo.Object, _aboutMeRepo.Object, _blogCommentRepository.Object);
 
             IEnumerable<BlogComment> actual = blogService.GetComments("test-blog-comments");
 
@@ -71,14 +71,14 @@ namespace MarcRoche.Services.Tests
 
         /// TEST CLASS SETUP CODE
         private static Mock<IRepository<BlogPost>> _blogPostRepo;
-        private static Mock<IRepository<AboutMe>> _aboutMeRepo;
+        private static Mock<IRepository<About>> _aboutMeRepo;
         private static Mock<IRepository<IList<BlogComment>>> _blogCommentRepository;
 
         [ClassInitialize]
         public static void MyClassInitialize(TestContext context)
         {
             _blogPostRepo = new Mock<IRepository<BlogPost>>();
-            _aboutMeRepo = new Mock<IRepository<AboutMe>>();
+            _aboutMeRepo = new Mock<IRepository<About>>();
             _blogCommentRepository = new Mock<IRepository<IList<BlogComment>>>();
 
             _blogPostRepo.Setup(x => x.GetAll()).Returns(() =>
@@ -116,13 +116,13 @@ namespace MarcRoche.Services.Tests
                 };
             });
 
-            _aboutMeRepo.Setup(x => x.Get(AboutMe.CacheKey)).Returns(() =>
+            _aboutMeRepo.Setup(x => x.Get(About.CacheKey)).Returns(() =>
             {
-                return new AboutMe
+                return new About
                 {
                     Author = "test-user",
                     Content = "Test about me content",
-                    Id = AboutMe.CacheKey,
+                    Id = About.CacheKey,
                     PublishDate = DateTime.Parse("1/1/2013"),
                     Title = "About Me Title"
                 };
@@ -130,13 +130,13 @@ namespace MarcRoche.Services.Tests
 
             _aboutMeRepo.Setup(x => x.GetAll()).Returns(() =>
             {
-                return new List<AboutMe>
+                return new List<About>
                 {
-                    new AboutMe
+                    new About
                     {
                         Author = "test-user",
                         Content = "Test about me content",
-                        Id = AboutMe.CacheKey,
+                        Id = About.CacheKey,
                         PublishDate = DateTime.Parse("1/1/2013"),
                         Title = "About Me Title"
                     }

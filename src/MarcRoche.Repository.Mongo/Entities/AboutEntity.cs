@@ -5,12 +5,10 @@ using MongoDB.Bson.Serialization.Attributes;
 namespace MarcRoche.Repository.Mongo.Entities
 {
     [BsonIgnoreExtraElements]
-    public class AboutMeEntity : MongoEntity
+    public class AboutEntity : MongoEntity
     {
         public static string Collection = "about";
 
-        [BsonElement("author")] 
-        public string Author { get; set; }
         [BsonElement("content")] 
         public string Content { get; set; }
         [BsonElement("htmlContent")]
@@ -19,7 +17,7 @@ namespace MarcRoche.Repository.Mongo.Entities
         public DateTime PublishDate { get; set; }
         [BsonElement("title")]
         public string Title { get; set; }
-        [BsonElement("aboutMeId")]  
-        public Guid AboutMeId { get; set; }
+        [BsonElement("aboutId")]  
+        public Guid AboutId { get; set; }
     }
 }

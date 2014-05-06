@@ -11,9 +11,9 @@ namespace MarcRoche.Web.Controllers
     [RoutePrefix("archive")]
     public class ArchiveController : Controller
     {
-        private readonly IBlogService _blogService;
+        private readonly IAboutService _blogService;
 
-        public ArchiveController(IBlogService blogService)
+        public ArchiveController(IAboutService blogService)
         {
             _blogService = blogService;
         }

@@ -5,6 +5,7 @@ using Repository;
 using MarcRoche.Services;
 using MarcRoche.Domain.Services;
 using MarcRoche.Common.Infrastructure;
+using MarcRoche.Domain.Blog;
 
 namespace MarcRoche.IoC
 {
@@ -12,12 +13,16 @@ namespace MarcRoche.IoC
     {
         public override void Load()
         {
-            Bind<IBlogService>().To<BlogService>();
+            Bind<IAboutService>().To<BlogService>();
             Bind<IAdminService>().To<AdminService>();
             Bind<IConfigurationService>().To<ConfigurationService>();
 
             Bind<IRepository<BlogPostEntity>>().To<MongoRepository<BlogPostEntity>>();
-            Bind<IRepository<AboutMeEntity>>().To<MongoRepository<AboutMeEntity>>();
+            Bind<IRepository<AboutEntity>>().To<MongoRepository<AboutEntity>>();
+
+            //Bind<IRepository<BlogPost>>().To<MongoRepository<BlogPost>>();
+            //Bind<IRepository<About>>().To<MongoRepository<About>>();
+
             //Bind<IRepository<IList<BlogCommentEntity>>>().To<MongoRepository<IList<BlogCommentEntity>>>();
             //Bind<IMarkdownService>().To<MarkdownService>().WithConstructorArgument("contentProvider", 
         }

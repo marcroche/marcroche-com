@@ -6,18 +6,18 @@ namespace MarcRoche.Web.Controllers
     [RoutePrefix("about")]
     public class AboutController : Controller
     {
-        private readonly IBlogService _blogService;
+        private readonly IAboutService _aboutService;
 
-        public AboutController(IBlogService blogService)
+        public AboutController(IAboutService blogService)
         {
-            _blogService = blogService;
+            _aboutService = blogService;
         }
 
-        [OutputCache(CacheProfile = "AboutMeIndex")]
+        [OutputCache(CacheProfile = "AboutIndex")]
         public ActionResult Index()
         {
-            ViewBag.Title = "Marc Roche - About";
-            return View(_blogService.GetAboutMe());
+            ViewBag.Title = "Marc Roche - About This Blog";
+            return View(_aboutService.Get());
         }
     }
 }

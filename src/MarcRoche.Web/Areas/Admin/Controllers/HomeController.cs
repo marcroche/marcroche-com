@@ -9,9 +9,9 @@ namespace MarcRoche.Web.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IBlogService _blogService;
+        private readonly IAboutService _blogService;
 
-        public HomeController(IBlogService blogService)
+        public HomeController(IAboutService blogService)
         {
             _blogService = blogService;
         }

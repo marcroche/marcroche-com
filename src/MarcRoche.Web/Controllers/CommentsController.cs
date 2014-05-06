@@ -8,9 +8,9 @@ namespace MarcRoche.Web.Controllers
 {
     public class CommentsController : ApiController
     {
-        private readonly IBlogService _blogService;
+        private readonly IAboutService _blogService;
 
-        public CommentsController(IBlogService blogService)
+        public CommentsController(IAboutService blogService)
         {
             _blogService = blogService;
         }

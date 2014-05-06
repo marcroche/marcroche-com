@@ -11,13 +11,13 @@ namespace MarcRoche.Services
 {
     public class AdminService : IAdminService
     {
-        private readonly IBlogService _blogService;
+        private readonly IAboutService _blogService;
 
         private string xmlPath = @"C:\Development\MarcRoche_com\Main\MarcRoche.Web\App_Data\FileData\xml\";
         private string jsonPath = @"C:\Development\MarcRoche_com\Main\MarcRoche.Web\App_Data\blog\";
         private string markdownPath = @"C:\Development\MarcRoche_com\Main\MarcRoche.Web\App_Data\FileData\markdown\";
 
-        public AdminService(IBlogService blogService)
+        public AdminService(IAboutService blogService)
         {
             _blogService = blogService;
         }

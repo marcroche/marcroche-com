@@ -9,18 +9,19 @@ using System.Security.Cryptography;
 using System.Text;
 using MarcRoche.Common;
 using MarcRoche.Repository.Mongo.Entities;
+using MarcRoche.Domain.Services;
 
 namespace MarcRoche.Services
 {
     public class BlogService : IBlogService
     {
         private readonly IRepository<BlogPostEntity> _blogRepository;
-        private readonly IRepository<AboutMeEntity> _aboutMeRepository;
+        private readonly IRepository<AboutEntity> _aboutMeRepository;
         private readonly IRepository<IList<BlogCommentEntity>> _blogCommentRepository;
 
         public BlogService(
             IRepository<BlogPostEntity> blogRepository,
-            IRepository<AboutMeEntity> aboutMeRepository,
+            IRepository<AboutEntity> aboutMeRepository,
             IRepository<IList<BlogCommentEntity>> blogCommentRepository)
         {
             _blogRepository = blogRepository;
@@ -45,6 +46,7 @@ namespace MarcRoche.Services
 
         public BlogPost GetPostByTitle(string title)
         {
+            _blogRepository.Get(x => x.Title, title.ToLower().Replace(" ", "-"));
             return _blogRepository.GetAll().FirstOrDefault(x => x.Title.ToUpper() == title.ToUpper());
         }
 
@@ -99,7 +101,9 @@ namespace MarcRoche.Services
 
         public IList<BlogComment> GetComments(string title)
         {
-            return _blogCommentRepository.Get(title.ToLower().Replace(" ", "-"));
+            throw new NotImplementedException();
+            //title = title.ToLower().Replace(" ", "-");
+            //return _blogCommentRepository.Get(title).Get;
         }
     }
 }
