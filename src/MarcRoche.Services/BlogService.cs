@@ -10,6 +10,8 @@ using System.Text;
 using MarcRoche.Common;
 using MarcRoche.Repository.Mongo.Entities;
 using MarcRoche.Domain.Services;
+using MarcRoche.Domain.Blog.Archive;
+using MarcRoche.Repository.Mongo;
 
 namespace MarcRoche.Services
 {
@@ -18,6 +20,7 @@ namespace MarcRoche.Services
         private readonly IRepository<BlogPostEntity> _blogRepository;
         private readonly IRepository<AboutEntity> _aboutMeRepository;
         private readonly IRepository<IList<BlogCommentEntity>> _blogCommentRepository;
+        private readonly BlogRepository _repo;
 
         public BlogService(
             IRepository<BlogPostEntity> blogRepository,
@@ -27,11 +30,12 @@ namespace MarcRoche.Services
             _blogRepository = blogRepository;
             _aboutMeRepository = aboutMeRepository;
             _blogCommentRepository = blogCommentRepository;
+            _repo = new BlogRepository();
         }
 
-        public IEnumerable<BlogPost> GetArchive(int year, int month)
+        public IDictionary<int, IList<ArchiveItem>> GetArchive()
         {
-            return _blogRepository.GetAll().Where(x => x.PublishDate.Year == year && x.PublishDate.Month == month);
+            return _blogRepository.MapReduce<int, ArchiveItem>(Archive.MapFunction, Archive.ReduceFunction, Archive.FinalizeFunction);
         }
 
         public BlogPost GetLatestPost()

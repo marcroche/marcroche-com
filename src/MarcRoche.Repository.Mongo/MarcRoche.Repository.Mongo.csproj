@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlogRepository.cs" />
     <Compile Include="Entities\AboutEntity.cs" />
     <Compile Include="Entities\BlogCommentEntity.cs" />
     <Compile Include="Entities\BlogPostEntity.cs" />

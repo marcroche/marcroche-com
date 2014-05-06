@@ -11,6 +11,7 @@ using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using Newtonsoft.Json;
 using Repository;
+using System.Linq;
 
 namespace MarcRoche.Repository.Mongo
 {
@@ -96,10 +97,13 @@ namespace MarcRoche.Repository.Mongo
 
         public IDictionary<T, IList<V>> MapReduce<T,V>(string map, string reduce, string finalize)
         {
-            var options = new MapReduceOptionsBuilder();
-            options.SetFinalize(finalize);
-
-            var results = _mongoConnection.MongoCollection.MapReduce(map, reduce, options);
+            MapReduceArgs args = new MapReduceArgs
+            {
+                MapFunction = map,
+                ReduceFunction = reduce,
+                FinalizeFunction = finalize
+            };
+            MapReduceResult results = _mongoConnection.MongoCollection.MapReduce(args);
 
             IDictionary<T, IList<V>> dict = new Dictionary<T, IList<V>>();
             foreach (var result in results.GetResults())

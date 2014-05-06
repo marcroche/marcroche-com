@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using MarcRoche.Domain.Blog;
+using MarcRoche.Domain.Blog.Archive;
 
 namespace MarcRoche.Domain.Services
 {
     public interface IBlogService
     {
-        //AboutMe GetAboutMe();
-        IEnumerable<BlogPost> GetArchive(int year, int month);
+        IDictionary<int, IList<ArchiveItem>> GetArchive();
         IEnumerable<BlogPost> Search(string searchText);
         BlogPost GetPostByTitle(string title);
         BlogPost GetLatestPost();
