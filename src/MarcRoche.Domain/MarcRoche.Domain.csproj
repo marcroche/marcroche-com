@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Admin\Tags.cs" />
     <Compile Include="Blog\AboutMe.cs" />
-    <Compile Include="Blog\Archive\Archive.cs" />
     <Compile Include="Blog\Archive\ArchiveItem.cs" />
     <Compile Include="Blog\BlogComment.cs" />
     <Compile Include="Blog\BlogPost.cs" />

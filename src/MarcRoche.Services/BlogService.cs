@@ -35,31 +35,17 @@ namespace MarcRoche.Services
 
         public IDictionary<int, IList<ArchiveItem>> GetArchive()
         {
-            return _blogRepository.MapReduce<int, ArchiveItem>(Archive.MapFunction, Archive.ReduceFunction, Archive.FinalizeFunction);
+            return _repo.GetArchive();
         }
 
         public BlogPost GetLatestPost()
         {
-            return _blogRepository.GetAll().OrderByDescending(x => x.PublishDate).FirstOrDefault();
-        }
-
-        public IEnumerable<BlogPost> Search(string searchText)
-        {
-            return _blogRepository.GetAll().Where(x => x.Content.Contains(searchText));
+            return _repo.GetLatestPost().As<BlogPost, BlogPostEntity>();
         }
 
         public BlogPost GetPostByTitle(string title)
         {
-            _blogRepository.Get(x => x.Title, title.ToLower().Replace(" ", "-"));
-            return _blogRepository.GetAll().FirstOrDefault(x => x.Title.ToUpper() == title.ToUpper());
-        }
-
-        public IEnumerable<BlogPost> GetAll()
-        {
-            foreach (BlogPost post in _blogRepository.GetAll())
-            {
-                yield return post;
-            }
+            return _repo.Get(x => x.Title, title.ToLower().Replace(" ", "-")).As<BlogPost, BlogPostEntity>();
         }
 
         public void CreateComment(string title, BlogComment blogComment)

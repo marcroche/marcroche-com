@@ -18,7 +18,7 @@ namespace MarcRoche.Repository.Mongo
     public class MongoRepository<TEntity> : IRepository<TEntity> where TEntity : IMongoEntity
     {
         private readonly IConfigurationService _configurationService;
-        private readonly MongoConnection<TEntity> _mongoConnection;
+        protected readonly MongoConnection<TEntity> _mongoConnection;
 
         static MongoRepository()
         {

@@ -8,12 +8,11 @@ namespace MarcRoche.Domain.Services
     public interface IBlogService
     {
         IDictionary<int, IList<ArchiveItem>> GetArchive();
-        IEnumerable<BlogPost> Search(string searchText);
         BlogPost GetPostByTitle(string title);
         BlogPost GetLatestPost();
-        IEnumerable<BlogPost> GetAll();
-
-        void CreateComment(string title, BlogComment blogComment);
-        IList<BlogComment> GetComments(string title);
+        //IEnumerable<BlogPost> Search(string searchText);
+        //IEnumerable<BlogPost> GetAll();
+        //void CreateComment(string title, BlogComment blogComment);
+        //IList<BlogComment> GetComments(string title);
     }
 }
