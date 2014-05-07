@@ -3,11 +3,19 @@ using MarcRoche.Domain.Blog.Archive;
 using MarcRoche.Repository.Mongo.Entities;
 using MongoDB.Driver.Builders;
 using System.Linq;
+using MarcRoche.Common.Infrastructure;
 
 namespace MarcRoche.Repository.Mongo
 {
-    public class BlogRepository : MongoRepository<BlogPostEntity>
+    public class BlogRepository : MongoRepository<BlogPostEntity>, IBlogRepository<BlogPostEntity>
     {
+        private readonly IConfigurationService _configurationService;
+
+        public BlogRepository(IConfigurationService configurationService) : base(configurationService)
+        {
+            _configurationService = configurationService;
+        }
+
         public IDictionary<int, IList<ArchiveItem>> GetArchive()
         {
             string MapFunction = 

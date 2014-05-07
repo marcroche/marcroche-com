@@ -58,6 +58,7 @@
     <Compile Include="Services\IAboutService.cs" />
     <Compile Include="Services\IAdminService.cs" />
     <Compile Include="Services\IBlogService.cs" />
+    <Compile Include="Services\ICommentService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

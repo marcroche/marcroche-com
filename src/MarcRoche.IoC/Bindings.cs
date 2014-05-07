@@ -13,12 +13,13 @@ namespace MarcRoche.IoC
     {
         public override void Load()
         {
-            Bind<IAboutService>().To<BlogService>();
+            Bind<IBlogService>().To<BlogService>();
             Bind<IAdminService>().To<AdminService>();
             Bind<IConfigurationService>().To<ConfigurationService>();
 
             Bind<IRepository<BlogPostEntity>>().To<MongoRepository<BlogPostEntity>>();
             Bind<IRepository<AboutEntity>>().To<MongoRepository<AboutEntity>>();
+            Bind<IBlogRepository<BlogPostEntity>>().To<BlogRepository>();
 
             //Bind<IRepository<BlogPost>>().To<MongoRepository<BlogPost>>();
             //Bind<IRepository<About>>().To<MongoRepository<About>>();

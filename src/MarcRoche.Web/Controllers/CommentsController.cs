@@ -8,24 +8,24 @@ namespace MarcRoche.Web.Controllers
 {
     public class CommentsController : ApiController
     {
-        private readonly IAboutService _blogService;
+        private readonly ICommentService _commentService;
 
-        public CommentsController(IAboutService blogService)
+        public CommentsController(ICommentService commentService)
         {
-            _blogService = blogService;
+            _commentService = commentService;
         }
 
         // GET api/comments
         //[AcceptVerbs("GET")]
         public IEnumerable<BlogComment> Get(string id)
         {
-            return _blogService.GetComments(id);
+            return _commentService.Get(id);
         }
 
         // POST api/comments
         public void Post([FromBody]CommentsViewModel comment)
         {
-            _blogService.CreateComment(comment.Title, comment.Comment);
+            _commentService.Create(comment.Title, comment.Comment);
         }
     }
 }

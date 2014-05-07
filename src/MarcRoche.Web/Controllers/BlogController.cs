@@ -10,10 +10,10 @@ namespace MarcRoche.Web.Controllers
     [RoutePrefix("blog")]
     public class BlogController : Controller
     {
-        private readonly IAboutService _blogService;
+        private readonly IBlogService _blogService;
         private DateTimeFormatInfo _dateTimeFormatInfo = new DateTimeFormatInfo();
 
-        public BlogController(IAboutService blogService)
+        public BlogController(IBlogService blogService)
         {
             _blogService = blogService;
         }
@@ -43,12 +43,12 @@ namespace MarcRoche.Web.Controllers
             return View(post);
         }
 
-        [OutputCache(CacheProfile = "BlogByYearAndMonth")]
-        [Route("{year}/{month}", Name = "BlogByYearAndMonth")]
-        public ActionResult Archive(string year, string month)
-        {
-            ViewBag.Title = "Marc Roche - " + _dateTimeFormatInfo.GetMonthName(int.Parse(month)) + year;
-            return View(_blogService.GetArchive(int.Parse(year), int.Parse(month)));
-        }
+        //[OutputCache(CacheProfile = "BlogByYearAndMonth")]
+        //[Route("{year}/{month}", Name = "BlogByYearAndMonth")]
+        //public ActionResult Archive(string year, string month)
+        //{
+        //    ViewBag.Title = "Marc Roche - " + _dateTimeFormatInfo.GetMonthName(int.Parse(month)) + year;
+        //    return View(_blogService.GetArchive(int.Parse(year), int.Parse(month)));
+        //}
     }
 }

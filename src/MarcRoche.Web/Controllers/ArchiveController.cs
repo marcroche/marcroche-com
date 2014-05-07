@@ -11,9 +11,9 @@ namespace MarcRoche.Web.Controllers
     [RoutePrefix("archive")]
     public class ArchiveController : Controller
     {
-        private readonly IAboutService _blogService;
+        private readonly IBlogService _blogService;
 
-        public ArchiveController(IAboutService blogService)
+        public ArchiveController(IBlogService blogService)
         {
             _blogService = blogService;
         }
@@ -22,7 +22,7 @@ namespace MarcRoche.Web.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Marc Roche - Archive";
-            return View(new ArchiveViewModel(_blogService.GetAll()));
+            return View(_blogService.GetArchive());
         }
 
         [Route("{year}/{month}")]
