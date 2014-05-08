@@ -19,18 +19,18 @@ namespace MarcRoche.Services
     {
         private readonly IRepository<BlogPostEntity> _blogRepository;
         private readonly IRepository<AboutEntity> _aboutMeRepository;
-        private readonly IRepository<IList<BlogCommentEntity>> _blogCommentRepository;
+        //private readonly IRepository<IList<BlogCommentEntity>> _blogCommentRepository;
         private readonly IBlogRepository<BlogPostEntity> _repo;
 
         public BlogService(
             IRepository<BlogPostEntity> blogRepository,
             IRepository<AboutEntity> aboutMeRepository,
-            IRepository<IList<BlogCommentEntity>> blogCommentRepository,
+            //IRepository<IList<BlogCommentEntity>> blogCommentRepository,
             IBlogRepository<BlogPostEntity> repo)
         {
             _blogRepository = blogRepository;
             _aboutMeRepository = aboutMeRepository;
-            _blogCommentRepository = blogCommentRepository;
+            //_blogCommentRepository = blogCommentRepository;
             _repo = repo;
         }
 

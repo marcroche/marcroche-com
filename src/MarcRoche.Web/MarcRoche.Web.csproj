@@ -536,9 +536,13 @@
       <Project>{06aa32f1-3013-4aa2-a291-320a2e37e0cb}</Project>
       <Name>MarcRoche.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MarcRoche.Ninject\MarcRoche.IoC.csproj">
+    <ProjectReference Include="..\MarcRoche.IoC\MarcRoche.IoC.csproj">
       <Project>{e3c7b540-f1ca-40ee-af0f-95ee27d5bd2d}</Project>
       <Name>MarcRoche.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarcRoche.Repository.Mongo\MarcRoche.Repository.Mongo.csproj">
+      <Project>{cdf534e2-fe1a-4289-8c92-63be03d32e6f}</Project>
+      <Name>MarcRoche.Repository.Mongo</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
