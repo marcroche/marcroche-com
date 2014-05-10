@@ -10,7 +10,7 @@ namespace MarcRoche.Domain.Blog.Serialization
             return new XElement("BlogPost",
                 new XAttribute("title", post.Title),
                 new XAttribute("publishdate", post.PublishDate.ToString()),
-                new XAttribute("id", post.Id.ToString()),
+                new XAttribute("id", post.BlogPostId.ToString()),
                 new XAttribute("author", post.Author ?? string.Empty),
                 new XElement("Content", XElement.Parse(post.Content)),
                 new XElement("HtmlContent", XElement.Parse(post.HtmlContent)));
@@ -25,7 +25,7 @@ namespace MarcRoche.Domain.Blog.Serialization
                 Author = xml.Attribute("author").Value,
                 Content = xml.Element("Content").Value,
                 HtmlContent = xml.Element("HtmlContent") != null ? xml.Element("HtmlContent").Value : "",
-                Id = Guid.Parse(xml.Attribute("id").Value),
+                BlogPostId = Guid.Parse(xml.Attribute("id").Value),
                 PublishDate = DateTime.Parse(xml.Attribute("publishdate").Value),
                 Title = xml.Attribute("title").Value
             };

@@ -75,7 +75,7 @@ namespace MarcRoche.Model.Tests
         {
             Title = "Path Finding with D3",
             PublishDate = DateTime.Parse("2/15/2014 12:00:00 AM"),
-            Id = Guid.Parse("63cb5e5b-345f-4760-a069-56cc16fac5e6"),
+            BlogPostId = Guid.Parse("63cb5e5b-345f-4760-a069-56cc16fac5e6"),
             Author = "marcroche",
             ScriptDependencies = new List<string>
             {

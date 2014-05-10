@@ -374,11 +374,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
-    <Content Include="Demos\AngularManager\Content\site.css" />
-    <Content Include="Demos\AngularManager\Js\app.js" />
-    <Content Include="Demos\AngularManager\Pages\Home.html" />
-    <Content Include="Demos\AngularManager\Pages\Page2.html" />
-    <Content Include="Demos\AngularManager\Pages\Page1.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -410,7 +405,6 @@
     <Content Include="Js\views\comments.html" />
     <Content Include="LICENSE.txt" />
     <Content Include="parameters.xml" />
-    <Content Include="Demos\AngularManager\Index.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-mocks.js" />

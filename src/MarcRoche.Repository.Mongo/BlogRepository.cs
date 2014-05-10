@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using MarcRoche.Common.Infrastructure;
 using MarcRoche.Domain.Blog.Archive;
 using MarcRoche.Repository.Mongo.Entities;
 using MongoDB.Driver.Builders;
-using System.Linq;
-using MarcRoche.Common.Infrastructure;
 
 namespace MarcRoche.Repository.Mongo
 {
@@ -22,7 +22,7 @@ namespace MarcRoche.Repository.Mongo
 @"function Map() {
 	emit(
 		new Date(this.PublishDate).getFullYear(),
-		{ count: 1, publishDate: this.PublishDate, title: this.Title }
+		{ count: 1, publishDate: this.publishDate, title: this.title }
 	); 
 }";
 
@@ -47,7 +47,7 @@ namespace MarcRoche.Repository.Mongo
 
         public BlogPostEntity GetLatestPost()
         {
-            return _mongoConnection.MongoCollection.FindAll().SetSortOrder(SortBy.Descending("PublishDate")).SetLimit(1).FirstOrDefault();
+            return _mongoConnection.MongoCollection.FindAll().SetSortOrder(SortBy.Descending("publishDate")).SetLimit(1).FirstOrDefault();
         }
     }
 }

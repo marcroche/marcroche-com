@@ -5,6 +5,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace MarcRoche.Repository.Mongo.Entities
 {
+    [BsonIgnoreExtraElements]
     public class BlogPostEntity : MongoEntity
     {
         public static string Collection = "posts";

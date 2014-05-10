@@ -23,7 +23,7 @@ namespace MarcRoche.Repository.Mongo
         static MongoRepository()
         {
             Mapper.CreateMap<AboutEntity, About>();
-            Mapper.CreateMap<BlogPostEntity, BlogPost>();
+            Mapper.CreateMap<BlogPostEntity, BlogPost>(); //.ForMember(x => x.Id, y => y.)
             Mapper.CreateMap<BlogCommentEntity, BlogComment>();
         }
 

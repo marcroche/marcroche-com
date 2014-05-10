@@ -12,7 +12,7 @@ namespace MarcRoche.Domain.Blog
         public string Content { get; set; }
         public string HtmlContent { get; set; }
         public string MarkdownContent { get; set; }
-        public Guid Id { get; set; }
+        public Guid BlogPostId { get; set; }
         public DateTime PublishDate { get; set; }
         public IEnumerable<string> Tags { get; set; }
         public string Title { get; set; }
@@ -58,7 +58,7 @@ namespace MarcRoche.Domain.Blog
             return new XElement("BlogPost",
                 new XAttribute("title", blogPost.Title),
                 new XAttribute("publishdate", blogPost.PublishDate.ToString()),
-                new XAttribute("id", blogPost.Id.ToString()),
+                new XAttribute("id", blogPost.BlogPostId.ToString()),
                 new XAttribute("author", blogPost.Author ?? string.Empty),
                 scripts,
                 new XElement("Content", !string.IsNullOrEmpty(blogPost.Content) ? XElement.Parse(blogPost.Content) : null),
@@ -72,7 +72,7 @@ namespace MarcRoche.Domain.Blog
                 Author = xml.Attribute("author").Value,
                 Content = xml.Element("Content").Value,
                 HtmlContent = xml.Element("HtmlContent") != null ? xml.Element("HtmlContent").Value : "",
-                Id = Guid.Parse(xml.Attribute("id").Value),
+                BlogPostId = Guid.Parse(xml.Attribute("id").Value),
                 PublishDate = DateTime.Parse(xml.Attribute("publishdate").Value),
                 Title = xml.Attribute("title").Value
             };
