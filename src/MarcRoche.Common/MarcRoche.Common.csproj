@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comparers\ReverseComparer.cs" />
     <Compile Include="HtmlSanitizer.cs" />
     <Compile Include="Infrastructure\ConfigurationService.cs" />
     <Compile Include="Infrastructure\IConfigurationService.cs" />

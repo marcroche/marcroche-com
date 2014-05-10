@@ -14,6 +14,7 @@ namespace MarcRoche.IoC
         public override void Load()
         {
             Bind<IBlogService>().To<BlogService>();
+            Bind<IAboutService>().To<AboutService>();
             Bind<IAdminService>().To<AdminService>();
             Bind<IConfigurationService>().To<ConfigurationService>();
 

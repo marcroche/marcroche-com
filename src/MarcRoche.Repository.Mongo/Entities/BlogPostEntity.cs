@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using MarcRoche.Repository.Mongo.Entities.Attributes;
 using MarcRoche.Repository.Mongo.Entities.Base;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace MarcRoche.Repository.Mongo.Entities
 {
     [BsonIgnoreExtraElements]
+    [CollectionName("posts")]
     public class BlogPostEntity : MongoEntity
     {
-        public static string Collection = "posts";
-
         [BsonElement("author")] 
         public string Author { get; set; }
         [BsonElement("content")] 
@@ -26,6 +26,8 @@ namespace MarcRoche.Repository.Mongo.Entities
         public IEnumerable<string> Tags { get; set; }
         [BsonElement("title")] 
         public string Title { get; set; }
+        [BsonElement("searchableTitle")]
+        public string SearchableTitle { get; set; }
         [BsonElement("comments")] 
         public IEnumerable<BlogCommentEntity> Comments { get; private set; }
         [BsonElement("scriptDependencies")] 

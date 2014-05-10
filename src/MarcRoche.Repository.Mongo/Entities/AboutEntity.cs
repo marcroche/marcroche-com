@@ -1,14 +1,14 @@
 ﻿using System;
+using MarcRoche.Repository.Mongo.Entities.Attributes;
 using MarcRoche.Repository.Mongo.Entities.Base;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace MarcRoche.Repository.Mongo.Entities
 {
     [BsonIgnoreExtraElements]
+    [CollectionName("about")]
     public class AboutEntity : MongoEntity
     {
-        public static string Collection = "about";
-
         [BsonElement("content")] 
         public string Content { get; set; }
         [BsonElement("htmlContent")]

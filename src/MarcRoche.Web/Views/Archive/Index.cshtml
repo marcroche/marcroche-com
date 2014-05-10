@@ -1,16 +1,16 @@
-﻿@model MarcRoche.Web.Models.ArchiveViewModel
+﻿@model IDictionary<int, IList<MarcRoche.Domain.Blog.Archive.ArchiveItem>>
 
 <div class="archive">
     <h2>Archive</h2>
 
-    @foreach (var item in @Model.Items)
+    @foreach (var item in @Model)
     {
         <h3>@item.Key</h3>
 
-        foreach (var post in item.Value)
+        foreach (var post in item.Value.OrderByDescending(x => x.PublishDate))
         {
             <div>
-                <p><a href="@post.Link">@post.Title</a></p>
+                <p><a href="@post.Url">@post.Title</a></p>
             </div>
         }
     }

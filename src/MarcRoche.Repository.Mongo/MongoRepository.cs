@@ -23,7 +23,7 @@ namespace MarcRoche.Repository.Mongo
         static MongoRepository()
         {
             Mapper.CreateMap<AboutEntity, About>();
-            Mapper.CreateMap<BlogPostEntity, BlogPost>(); //.ForMember(x => x.Id, y => y.)
+            Mapper.CreateMap<BlogPostEntity, BlogPost>();
             Mapper.CreateMap<BlogCommentEntity, BlogComment>();
         }
 
@@ -93,6 +93,11 @@ namespace MarcRoche.Repository.Mongo
         {
             IMongoQuery entityQuery = Query<TEntity>.EQ(property, value);
             return _mongoConnection.MongoCollection.FindOne(entityQuery);
+        }
+
+        public TEntity GetLatest()
+        {
+            return _mongoConnection.MongoCollection.FindAll().SetSortOrder(SortBy.Descending("publishDate")).SetLimit(1).FirstOrDefault();
         }
 
         public IDictionary<T, IList<V>> MapReduce<T,V>(string map, string reduce, string finalize)

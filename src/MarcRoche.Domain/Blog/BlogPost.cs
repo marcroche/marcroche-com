@@ -16,6 +16,7 @@ namespace MarcRoche.Domain.Blog
         public DateTime PublishDate { get; set; }
         public IEnumerable<string> Tags { get; set; }
         public string Title { get; set; }
+        public string SearchableTitle { get; set; }
         public IEnumerable<BlogComment> Comments { get; private set; }
         public IEnumerable<string> ScriptDependencies { get; set; }
 

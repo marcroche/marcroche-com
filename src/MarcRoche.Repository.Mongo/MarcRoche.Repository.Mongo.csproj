@@ -56,8 +56,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutRepository.cs" />
     <Compile Include="BlogRepository.cs" />
     <Compile Include="Entities\AboutEntity.cs" />
+    <Compile Include="Entities\Attributes\CollectionNameAttribute.cs" />
     <Compile Include="Entities\BlogCommentEntity.cs" />
     <Compile Include="Entities\BlogPostEntity.cs" />
     <Compile Include="Entities\Base\IMongoEntity.cs" />

@@ -21,7 +21,7 @@ namespace MarcRoche.Repository.Mongo
             string MapFunction = 
 @"function Map() {
 	emit(
-		new Date(this.PublishDate).getFullYear(),
+		new Date(this.publishDate).getFullYear(),
 		{ count: 1, publishDate: this.publishDate, title: this.title }
 	); 
 }";
